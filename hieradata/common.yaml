@@ -5,3 +5,5 @@ ntp::servers:
   - time3.google.com
   - time4.google.com
 puppet_ip: 127.0.1.1
+base_packages:
+ - mlocate
