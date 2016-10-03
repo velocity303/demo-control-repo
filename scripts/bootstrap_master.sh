@@ -20,17 +20,6 @@ function setup_networking {
   echo "127.0.0.1 $server_name puppet localhost.localdomain localhost" > /etc/hosts
 }
 
-function configure_puppetmaster {
-  echo "dns_alt_names = $server_name,puppet" >> /etc/puppetlabs/puppet/puppet.conf
-  echo '[agent]' >> /etc/puppetlabs/puppet/puppet.conf
-  echo "server = puppet" >> /etc/puppetlabs/puppet/puppet.conf
-  sleep 5
-  cat > /etc/puppetlabs/puppet/csr_attributes.yaml << YAML
-extension_requests:
-    pp_role:  puppetmaster
-YAML
-}
-
 function copy_ssh_keys {
   mkdir -p /etc/puppetlabs/puppetserver/ssh
   if [ -d /vagrant/keys ]
@@ -74,6 +63,11 @@ function download_pe {
 
 function install_pe {
   mkdir -p /etc/puppetlabs/puppet
+  cat > /etc/puppetlabs/puppet/csr_attributes.yaml << YAML
+extension_requests:
+    pp_role:  puppetmaster
+YAML
+
   cat > /tmp/pe.conf << FILE
 "console_admin_password": "puppet"
 "puppet_enterprise::puppet_master_host": "%{::trusted.certname}"
