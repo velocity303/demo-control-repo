@@ -4,3 +4,4 @@ ntp::servers:
   - time2.google.com
   - time3.google.com
   - time4.google.com
+puppet_ip: 127.0.1.1

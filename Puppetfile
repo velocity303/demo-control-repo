@@ -61,7 +61,7 @@ mod 'kyleanderson/consul'
 
 ###############################################################################
 # TSE Modules
-mod 'ssh',
+mod 'openssh',
    :git => 'https://github.com/puppetlabs/tse-module-openssh.git'
 
 mod 'hosts',

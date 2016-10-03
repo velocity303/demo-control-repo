@@ -1,3 +1,3 @@
 class profile::baseline::ssh {
-  include ssh
+  include openssh
 }
