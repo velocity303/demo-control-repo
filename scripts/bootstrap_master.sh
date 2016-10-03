@@ -51,7 +51,7 @@ function copy_ssh_keys {
 
 function setup_hiera_pe {
   sleep 15
-  /opt/puppetlabs/bin/puppet apply -e "include profile::puppet::pe::hiera"
+  /opt/puppetlabs/bin/puppet apply -e "include profile::puppet::hiera"
   /opt/puppetlabs/bin/puppetserver gem install hiera-eyaml
   if [ -f /vagrant/keys/private_key.pkcs7.pem ]
     then
