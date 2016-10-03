@@ -44,7 +44,7 @@ function copy_ssh_keys {
       cp /vagrant/keys/id_rsa.pub ~/.ssh/id_rsa.pub
     else
       echo "Vagrant keys directory does not exists. Creating them"
-      ssh-keygen -t rsa -b 4096 -N'' -f /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa
+      ssh-keygen -t rsa -b 4096 -N"" -f /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa
   fi
 }
 
