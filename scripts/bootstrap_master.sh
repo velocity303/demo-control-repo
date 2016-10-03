@@ -12,7 +12,6 @@ function configure_puppetmaster {
   echo '[agent]' >> /etc/puppetlabs/puppet/puppet.conf
   echo "server = puppet" >> /etc/puppetlabs/puppet/puppet.conf
   sleep 5
-  mkdir -p /etc/puppetlabs/puppet/autosign/psk
   cat > /etc/puppetlabs/puppet/csr_attributes.yaml << YAML
 extension_requests:
     pp_role:  puppetmaster
@@ -20,13 +19,19 @@ YAML
 }
 
 function copy_ssh_keys {
+  mkdir -p /etc/puppetlabs/puppetserver/ssh
   if [ -d /vagrant/keys ]
     then
       echo "Vagrant keys directory exists. Copying them in place"
+      cp /vagrant/keys/id_rsa /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa
+      cp /vagrant/keys/id_rsa.pub /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa.pub
       mkdir -p ~/.ssh
       echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
       cp /vagrant/keys/id_rsa ~/.ssh/id_rsa
       cp /vagrant/keys/id_rsa.pub ~/.ssh/id_rsa.pub
+    else
+      echo "Vagrant keys directory does not exists. Creating them"
+      ssh-keygen -t rsa -b 4096 -N"" -f /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa
   fi
 }
 
@@ -55,9 +60,6 @@ function download_pe {
 }
 
 function install_pe {
-  mkdir -p /etc/puppetlabs/puppetserver/ssh
-  cp /vagrant/keys/id_rsa /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa
-  cp /vagrant/keys/id_rsa.pub /etc/puppetlabs/puppetserver/ssh/id-control_repo.rsa.pub
   mkdir -p /etc/puppetlabs/puppet
   cat > /tmp/pe.conf << FILE
 "console_admin_password": "puppet"
@@ -98,6 +100,7 @@ function deploy_code_pe {
 
 setup_networking
 download_pe
+copy_ssh_keys
 install_pe
 add_pe_users
 deploy_code_pe
