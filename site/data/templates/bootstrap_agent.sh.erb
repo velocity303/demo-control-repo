@@ -1,0 +1,33 @@
+#!/bin/bash
+server_name=$(hostname)
+master_ip=<%= @master_ip %>
+master_host=<%= @master_host %>
+role=<%= @agent_role %>
+
+function setup_networking {
+  echo "$server_name" > /etc/hostname
+  hostname $server_name
+  echo "127.0.0.1 $server_name localhost.localdomain localhost" > /etc/hosts
+  echo "$master_ip $master_host puppet" >> /etc/hosts
+}
+
+function install_prereqs {
+  apt install -y curl
+}
+
+
+function install_pe_puppetagent {
+  mkdir -p /etc/puppetlabs/puppet
+  cat > /etc/puppetlabs/puppet/csr_attributes.yaml << YAML
+extension_requests:
+    pp_role:  $role
+YAML
+  echo '[agent]' >> /etc/puppetlabs/puppet/puppet.conf
+  echo "server = puppet" >> /etc/puppetlabs/puppet/puppet.conf
+  curl -k https://puppet:8140/packages/current/install.bash | bash
+  service puppet start
+}
+
+    setup_networking
+    install_prereqs
+    install_pe_puppetagent

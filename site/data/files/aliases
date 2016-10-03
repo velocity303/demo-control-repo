@@ -1,0 +1,3 @@
+postmaster: webmaster@yourdomain.com
+root: webmaster@yourdomain.com
+www-data: webmaster@yourdomain.com

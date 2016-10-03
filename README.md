@@ -1,2 +1,2 @@
-# demo-control-repo
-A catchall for my demos
+This is a repository for controlling my puppet infrastructure
+

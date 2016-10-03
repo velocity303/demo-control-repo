@@ -1,0 +1,11 @@
+<server description="Hello World Server">
+
+ <featureManager>
+   <feature>servlet-3.0</feature>
+ </featureManager>
+
+<httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="<%= @port %>" />
+
+<webApplication contextRoot="<%= @app_name %>" location="<%= @app_name %>.war" />
+
+</server>
