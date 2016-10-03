@@ -1,5 +1,18 @@
 #/bin/bash
-server_name=$2
+server_name=$1
+is_ec2=$2
+
+function ec2_setup {
+  setenforce 0
+  sed -i 's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
+  ntpdate -u 0.amazon.pool.ntp.org
+  /sbin/parted -s /dev/xvdb mklabel gpt
+  /sbin/parted -s /dev/xvdb mkpart primary 0% 100%
+  /sbin/mkfs.ext4 /dev/xvdb1
+  mount /dev/xvdb1 /opt
+  echo "/dev/xvdb1              /opt                    ext4    defaults        0 2" >> /etc/fstab
+  lsblk
+}
 
 function setup_networking {
   echo "$server_name" > /etc/hostname
@@ -97,6 +110,11 @@ TEXT
 function deploy_code_pe {
   /opt/puppetlabs/bin/puppet-code deploy production -w
 }
+
+if [ $is_ec2 == 'true' ]
+  then
+    ec2_setup
+fi
 
 setup_networking
 download_pe
