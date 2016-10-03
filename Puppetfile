@@ -60,9 +60,9 @@ mod 'kyleanderson/consul'
 
 
 ###############################################################################
-# My Modules
+# TSE Modules
 mod 'ssh',
-   :git => 'git@github.com:velocity303/puppet-ssh.git'
+   :git => 'https://github.com/puppetlabs/tse-module-openssh.git'
 
 mod 'hosts',
    :git => 'https://github.com/velocity303/puppet-module-hosts.git'
