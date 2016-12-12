@@ -11,9 +11,10 @@ class profile::firewall::puppetmaster {
     action => accept,
   }
   firewall { '100 allow PE Specific access':
-    dport  => ['443','8142'],
+    dport  => ['443','8142', '4433'],
     proto  => tcp,
     action => accept,
   }
+
 }
 
