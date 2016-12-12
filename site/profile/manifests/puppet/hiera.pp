@@ -5,8 +5,7 @@ class profile::puppet::hiera {
       hierarchy       => [
         'secure',
         'nodes/%{hostname}',
-        '%{environment}/%{calling_class}',
-        '%{environment}',
+        'location/%{location}',
         'common',
       ],
       eyaml          => true,
@@ -24,8 +23,7 @@ class profile::puppet::hiera {
       hierarchy       => [
         'secure',
         'nodes/%{hostname}',
-        '%{environment}/%{calling_class}',
-        '%{environment}',
+        'location/%{location}',
         'common',
       ],
       confdir        => '/etc/puppetlabs/puppet',
