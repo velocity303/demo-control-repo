@@ -1,3 +1,5 @@
 class profile::inf::jenkins::slave {
-  include jenkins::slave
+  class { 'jenkins::slave':
+    masterurl => 'http://jenkins01.infrastructure.lab:8080',
+  }
 }
