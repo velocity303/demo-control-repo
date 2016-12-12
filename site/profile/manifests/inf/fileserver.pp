@@ -13,6 +13,9 @@ class profile::inf::fileserver {
     docroot_group => 'apache',
   }
 
+  file { '/var/cache/yumrepos':
+    ensure => directory,
+  }
   createrepo { 'myrepo':
     repository_dir => '/opt/fileserver/myrepo',
     require        => File['/opt/fileserver'],
