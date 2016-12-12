@@ -59,6 +59,7 @@ mod 'saz/sudo'
 mod 'pltraining/rbac'
 mod 'trlinkin/domain_membership'
 mod 'kyleanderson/consul'
+mod 'palli/createrepo'
 
 
 ###############################################################################
