@@ -5,6 +5,6 @@ class profile::puppet::consoleusers {
     display_name => 'deployment user account',
     email        => 'james.jones@puppet.com',
     password     => 'puppetlabs',
-    roles        => [ 'Code Deployers', 'Operators', 'Node Data Viewers' ],
+    roles        => [ 'Code Deployers', 'Operators', 'Node Data Viewer' ],
   }
 }
