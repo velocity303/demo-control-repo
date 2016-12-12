@@ -45,7 +45,8 @@ mod 'nanliu/staging'
 mod 'stahnma/epel'
 mod 'lwf/remote_file'
 mod 'puppet/archive'
-mod 'rtyler/jenkins'
+mod 'jenkins'
+  :git => 'https://github.com/jenkinsci/puppet-jenkins.git'
 
 ###############################################################################
 # Other Forge Modules
