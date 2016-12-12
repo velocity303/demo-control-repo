@@ -2,7 +2,7 @@ class profile::inf::fileserver {
   include 'stdlib'
   include 'apache'
 
-  ensure_resource('file', '/opt/fileserver', { 'ensure' => 'directory', 'owner' => 'apache', 'group' => 'apache', 'require' =>  'Class[\'apache\']'})
+  ensure_resource('file', '/opt/fileserver', { 'ensure' => 'directory', 'owner' => 'apache', 'group' => 'apache', 'require' =>  'Apache::Vhost[\'fileserver\']'})
 
   apache::vhost { 'fileserver':
     vhost_name    => '*',
@@ -11,7 +11,6 @@ class profile::inf::fileserver {
     priority      => '10',
     docroot_owner => 'apache',
     docroot_group => 'apache',
-    require       => Class['apache'],
   }
 
   createrepo { 'myrepo':
