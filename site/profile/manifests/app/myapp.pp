@@ -3,7 +3,7 @@ class profile::app::myapp (
   $fileserver_domain = "${::location}.lab",
 ) {
   yumrepo { "MyRepo":
-    baseurl  => "http://${fileserver_host}.${fileserver_domain}/repository/",
+    baseurl  => "http://${fileserver_host}.${fileserver_domain}/myrepo/",
     descr    => "My application repository",
     enabled  => 1,
     priority => 99,
