@@ -4,6 +4,6 @@ class profile::inf::gitlab {
   #Install gitlab
 
   class { 'gitlab':
-    external_url => "https://${::fqdn}",
+    external_url => "http://${::fqdn}",
   }
 }
