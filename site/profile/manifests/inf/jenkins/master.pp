@@ -3,5 +3,7 @@ class profile::inf::jenkins::master {
     version => 'latest',
     lts     => false,
   }
-  include jenkins::master
+  class { 'jenkins::master':
+    version => '2.2',
+  }
 }
