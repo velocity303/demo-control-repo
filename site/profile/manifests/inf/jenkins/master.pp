@@ -1,3 +1,6 @@
 class profile::inf::jenkins::master {
-  include jenkins
+  class { 'jenkins':
+    version => 'latest',
+    lts     => false,
+  }
 }
