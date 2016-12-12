@@ -2,7 +2,7 @@ class profile::inf::fileserver {
   include 'stdlib'
   include 'apache'
 
-  ensure_resource('file', '/opt/fileserver', { 'ensure' => 'directory', 'owner' => 'apache', 'group' => 'apache', 'require' =>  'Class["apache"]'})
+  ensure_resource('file', '/opt/fileserver', { 'ensure' => 'directory', 'owner' => 'apache', 'group' => 'apache', 'require' =>  'Class[\'apache\']'})
 
   apache::vhost { 'fileserver':
     vhost_name    => '*',
