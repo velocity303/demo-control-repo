@@ -9,5 +9,13 @@ class profile::inf::jenkins::master {
   }
   jenkins::plugin { 'puppet-enterprise-pipeline': }
   jenkins::plugin { 'gitlab-plugin': }
-  jenkins::plugin { 'publish-over-ssh': }
+  jenkins::plugin { 'git': }
+  jenkins::plugin { 'workflow-step-api': }
+  jenkins::plugin { 'git-client': }
+  jenkins::plugin { 'plain-credentials': }
+  jenkins::plugin { 'structs': }
+  jenkins::plugin { 'script-security': }
+  jenkins::plugin { 'workflow-cps': }
+  jenkins::plugin { 'workflow-api': }
+  jenkins::plugin { 'workflow-durable-task-step': }
 }
