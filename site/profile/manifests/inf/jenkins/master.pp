@@ -7,4 +7,7 @@ class profile::inf::jenkins::master {
   class { 'jenkins::master':
     version => '2.2',
   }
+  jenkins::plugin { 'puppet-enterprise-plugin': }
+  jenkins::plugin { 'gitlab-plugin': }
+  jenkins::plugin { 'publish-over-ssh': }
 }
