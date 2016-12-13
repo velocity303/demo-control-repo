@@ -18,4 +18,13 @@ class profile::inf::jenkins::master {
   jenkins::plugin { 'workflow-cps': }
   jenkins::plugin { 'workflow-api': }
   jenkins::plugin { 'workflow-durable-task-step': }
+  jenkins::plugin { 'workflow-scm-step': }
+  jenkins::plugin { 'ssh-credentials': }
+  jenkins::plugin { 'durable-task': }
+  jenkins::plugin { 'workflow-basic-steps': }
+  jenkins::plugin { 'workflow-support': }
+  jenkins::plugin { 'scm-api': }
+  jenkins::plugin { 'ace-editor': }
+  jenkins::plugin { 'jquery-detached': }
+
 }
