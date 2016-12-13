@@ -28,4 +28,6 @@ class profile::inf::jenkins::master {
   jenkins::plugin { 'jquery-detached': }
   jenkins::plugin { 'mailer': }
   jenkins::plugin { 'matrix-project': }
+  jenkins::plugin { 'display-url-api': }
+  jenkins::plugin { 'junit': }
 }
