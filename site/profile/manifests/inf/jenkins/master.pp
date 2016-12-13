@@ -26,5 +26,6 @@ class profile::inf::jenkins::master {
   jenkins::plugin { 'scm-api': }
   jenkins::plugin { 'ace-editor': }
   jenkins::plugin { 'jquery-detached': }
-
+  jenkins::plugin { 'mailer': }
+  jenkins::plugin { 'matrix-project': }
 }
