@@ -28,6 +28,7 @@ mod 'puppetlabs/azure'
 mod 'puppetlabs/puppetserver_gem'
 mod 'puppetlabs/gcc'
 mod 'puppetlabs/git'
+mod 'puppetlabs/transition'
 #mod 'puppetlabs/gce_compute'
 
 
