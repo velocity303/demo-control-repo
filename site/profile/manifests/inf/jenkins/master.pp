@@ -17,8 +17,9 @@ class profile::inf::jenkins::master {
   }
 
   exec { 'update jnlp port':
-    command   => '/usr/bin/java -jar /usr/lib/jenkins/jenkins-cli.jar -s http://127.0.0.1:8080 groovy /tmp/init.groovy',
-    subscribe => Class['jenkins'],
+    command     => '/usr/bin/java -jar /usr/lib/jenkins/jenkins-cli.jar -s http://127.0.0.1:8080 groovy /tmp/init.groovy',
+    subscribe   => Class['jenkins'],
+    refreshonly => true,
   }->
 
   file { '/tmp/init.groovy':
