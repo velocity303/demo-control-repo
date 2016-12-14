@@ -30,4 +30,5 @@ class profile::inf::jenkins::master {
   jenkins::plugin { 'matrix-project': }
   jenkins::plugin { 'display-url-api': }
   jenkins::plugin { 'junit': }
+  jenkins::plugin { 'pipeline': }
 }
