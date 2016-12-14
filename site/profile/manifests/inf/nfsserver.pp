@@ -34,6 +34,10 @@ class profile::inf::nfsserver (
     path   => '/etc/sysconfig/nfs',
     notify => Service['nfs'],
   }
+  
+  service { 'nfs':
+    ensure => running,
+  }
 
   # Standard RPC 4.0 portmapper rules
   firewall { '100 allow RPC 4.0 portmapper TCP connections':
