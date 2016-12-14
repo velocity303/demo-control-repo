@@ -7,3 +7,5 @@ ntp::servers:
 puppet_ip: 192.168.0.157
 base_packages:
  - mlocate
+ - wget
+ - curl
