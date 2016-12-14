@@ -21,6 +21,7 @@ mod 'puppetlabs/tomcat'
 mod 'puppetlabs/mysql'
 mod 'puppetlabs/aws'
 mod 'puppetlabs/azure'
+mod 'puppetlabs/reboot'
 
 ###############################################################################
 # Other Puppet Created Modules
@@ -62,6 +63,7 @@ mod 'trlinkin/domain_membership'
 mod 'kyleanderson/consul'
 mod 'palli/createrepo'
 mod 'derdanne/nfs'
+mod 'ghoneycutt/selinux'
 
 
 ###############################################################################
