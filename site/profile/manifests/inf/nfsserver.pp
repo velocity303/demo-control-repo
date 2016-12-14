@@ -7,7 +7,7 @@
 # In conjunction with the profile::firewall class, this can be used for
 # purge-management of an iptables-based firewall on a target system.
 #
-class profile::example::nfsserver (
+class profile::inf::nfsserver (
   $lockd_tcpport       = '32803',
   $lockd_udpport       = '32769',
   $mountd_port         = '892',
