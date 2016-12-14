@@ -9,4 +9,10 @@ class profile::inf::jenkins::slave {
     action  => accept,
   }
 
+  firewall { '100 allow jenkins-swarm through the firewall':
+    dport  => '33848',
+    proto  => udp,
+    action => accept,
+  }
+
 }
