@@ -1,4 +1,6 @@
 class profile::inf::jenkins::master {
+  include git
+
   class { 'jenkins':
     version            => 'latest',
     lts                => false,
