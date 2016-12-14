@@ -39,4 +39,10 @@ class profile::inf::jenkins::master {
   jenkins::plugin { 'pipeline-stage-step': }
   jenkins::plugin { 'workflow-cps-global-lib': }
   jenkins::plugin { 'workflow-job': }
+  jenkins::plugin { 'momentjs': }
+  jenkins::plugin { 'pipeline-rest-api': }
+  jenkins::plugin { 'handlebars': }
+  jenkins::plugin { 'cloudbees-folder': }
+  jenkins::plugin { 'git-server': }
+  jenkins::plugin { 'branch-api': }
 }
