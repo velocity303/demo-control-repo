@@ -5,6 +5,25 @@ class profile::inf::jenkins::master {
     configure_firewall => true,
   }
 
+  transition { 'create my groovy init script':
+      resource   => File['/tmp/init.groovy'],
+      attributes => {
+        ensure     => present,
+        content    => 'def instance=jenkins.model.Jenkins.instance
+      instance.setSlaveAgentPort(9999)
+      instance.save()',
+      },
+      prior_to => Exec['update jnlp port'],
+  }
+
+  exec { 'update jnlp port':
+    command     => '/usr/bin/java -jar /usr/lib/jenkins/jenkins-cli.jar -s http://127.0.0.1:8080 groovy /tmp/init.groovy'
+    subscribe   => Class['jenkins'],
+  }
+
+  file { '/tmp/init.groovy':
+    ensure => absent,
+  }
   jenkins::user { 'james':
     email    => 'james.jones@puppet.com',
     password => 'puppetlabs',
