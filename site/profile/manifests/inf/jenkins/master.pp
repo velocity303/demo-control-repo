@@ -10,7 +10,7 @@ class profile::inf::jenkins::master {
       attributes => {
         ensure     => present,
         content    => 'def instance=jenkins.model.Jenkins.instance
-      instance.setSlaveAgentPort(9999)
+      instance.setSlaveAgentPort(40196)
       instance.save()',
       },
       prior_to => Exec['update jnlp port'],
