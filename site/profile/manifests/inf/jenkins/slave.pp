@@ -1,6 +1,6 @@
 class profile::inf::jenkins::slave {
   class { 'jenkins::slave':
-    masterurl => 'http://jenkins01.infrastructure.lab',
+    masterurl => 'http://jenkins01.infrastructure.lab:8080',
     version   => '2.2',
     ui_user   => 'james',
     ui_pass   => 'puppetlabs',
