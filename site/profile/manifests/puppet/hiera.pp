@@ -57,4 +57,8 @@ class profile::puppet::hiera {
       provider       => puppetserver_gem,
     }
   }
+  package { 'hiera-http':
+    ensure   => present,
+    provider => puppetserver_gem,
+  }
 }
