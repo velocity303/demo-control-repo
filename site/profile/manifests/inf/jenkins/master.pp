@@ -5,6 +5,10 @@ class profile::inf::jenkins::master {
     configure_firewall => true,
   }
 
+  jenkins::user { 'james':
+    email    => 'james.jones@puppet.com',
+    password => 'puppetlabs',
+  }
   firewall { '001 allow jenkins-swarm through the firewall':
     pkttype => 'broadcast',
     proto   => udp,
