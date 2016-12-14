@@ -9,4 +9,5 @@ class profile::baseline {
   #include profile::baseline::vim
   #include profile::baseline::users
   include profile::puppet::agent
+  include profile::baseline::selinux
 }
