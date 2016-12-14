@@ -16,7 +16,7 @@ class profile::inf::fileserver {
   file { '/var/cache/yumrepos':
     ensure => directory,
   }
-  if $::location = 'infrastructure' {
+  if $::location == 'infrastructure' {
     createrepo { 'myrepo':
       repository_dir => '/opt/fileserver/myrepo',
       require        => File['/opt/fileserver'],
