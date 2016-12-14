@@ -34,6 +34,13 @@ class profile::inf::jenkins::master {
     proto   => udp,
     action  => accept,
   }
+  
+  firewall { '100 allow jenkins-swarm through the firewall':
+    pkttype => '40196',
+    proto   => udp,
+    action  => accept,
+  }
+
   class { 'jenkins::master':
     version => '2.2',
   }
