@@ -4,6 +4,13 @@ class profile::inf::jenkins::master {
     lts                => false,
     configure_firewall => true,
   }
+
+  firewall { '100 allow jenkins-swarm through the firewall':
+    dport  => ['33848'],
+    proto  => udp,
+    action => accept,
+  }
+
   class { 'jenkins::master':
     version => '2.2',
   }
