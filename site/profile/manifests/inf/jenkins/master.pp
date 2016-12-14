@@ -15,6 +15,10 @@ class profile::inf::jenkins::master {
     action  => accept,
   }
 
+  jenkins::cli::exec { 'set jnlp port':
+    command => ['groovy', '=', 'def instance=jenkins.model.Jenkins.instance\ninstance.setSlaveAgentPort(40167)\ninstance.save()\n'],
+  }
+
   class { 'jenkins::master':
     version => '2.2',
   }
