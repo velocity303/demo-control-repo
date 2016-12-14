@@ -45,4 +45,5 @@ class profile::inf::jenkins::master {
   jenkins::plugin { 'cloudbees-folder': }
   jenkins::plugin { 'git-server': }
   jenkins::plugin { 'branch-api': }
+  jenkins::plugin { 'pipeline-graph-analysis': }
 }
