@@ -31,4 +31,12 @@ class profile::inf::jenkins::master {
   jenkins::plugin { 'display-url-api': }
   jenkins::plugin { 'junit': }
   jenkins::plugin { 'workflow-aggregator': }
+  jenkins::plugin { 'pipeline-input-step': }
+  jenkins::plugin { 'pipeline-milestone-step': }
+  jenkins::plugin { 'pipeline-build-step': }
+  jenkins::plugin { 'pipeline-stage-view': }
+  jenkins::plugin { 'workflow-multibranch': }
+  jenkins::plugin { 'pipeline-stage-step': }
+  jenkins::plugin { 'workflow-cps-global-lib': }
+  jenkins::plugin { 'workflow-job': }
 }
