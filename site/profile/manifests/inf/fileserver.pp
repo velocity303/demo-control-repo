@@ -26,7 +26,7 @@ class profile::inf::fileserver {
     }
     nfs::server::export{ '/opt/fileserver/myrepo':
       ensure  => 'mounted',
-      clients => '0.0.0.0/0(rw,insecure,async,no_root_squash) localhost(rw)'
+      clients => '*(rw,insecure,async,no_root_squash) localhost(rw)'
     }
   }
   else {
