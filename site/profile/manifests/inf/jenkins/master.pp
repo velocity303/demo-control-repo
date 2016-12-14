@@ -6,9 +6,9 @@ class profile::inf::jenkins::master {
   }
 
   firewall { '100 allow jenkins-swarm through the firewall':
-    dport  => ['33848'],
-    proto  => udp,
-    action => accept,
+    pkttype => 'broadcast',
+    proto   => udp,
+    action  => accept,
   }
 
   class { 'jenkins::master':
