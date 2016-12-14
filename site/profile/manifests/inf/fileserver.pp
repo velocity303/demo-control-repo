@@ -16,11 +16,25 @@ class profile::inf::fileserver {
   file { '/var/cache/yumrepos':
     ensure => directory,
   }
-  createrepo { 'myrepo':
-    repository_dir => '/opt/fileserver/myrepo',
-    require        => File['/opt/fileserver'],
+  if $::location = 'infrastructure' {
+    createrepo { 'myrepo':
+      repository_dir => '/opt/fileserver/myrepo',
+      require        => File['/opt/fileserver'],
+    }
+    class { '::nfs':
+      server_enabled => true
+    }
+    nfs::server::export{ '/opt/fileserver/myrepo':
+      ensure  => 'mounted',
+      clients => '0.0.0.0/24(rw,insecure,async,no_root_squash) localhost(rw)'
+    }
   }
-
+  else {
+    class { '::nfs':
+      client_enabled => true,
+    }
+    Nfs::Client::Mount <<| |>>
+  }
   firewall { '110 apache allow all':
     dport  => '80',
     chain  => 'INPUT',

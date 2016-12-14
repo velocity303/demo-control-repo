@@ -61,6 +61,7 @@ mod 'pltraining/rbac'
 mod 'trlinkin/domain_membership'
 mod 'kyleanderson/consul'
 mod 'palli/createrepo'
+mod 'derdanne/nfs'
 
 
 ###############################################################################
