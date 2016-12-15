@@ -3,12 +3,12 @@ class profile::app::myapp (
   $fileserver_domain = "${::location}.lab",
 ) {
   yumrepo { "MyRepo":
-    baseurl   => "http://${fileserver_host}.${fileserver_domain}/myrepo/",
-    descr     => "My application repository",
-    enabled   => 1,
-    keepcache => 0,
-    priority  => 99,
-    gpgcheck  => 0
+    baseurl      => "http://${fileserver_host}.${fileserver_domain}/myrepo/",
+    descr        => "My application repository",
+    enabled      => 1,
+    http_caching => 'none',
+    priority     => 99,
+    gpgcheck     => 0
   }
   if !defined(Package['unzip']) {
     package {'unzip': ensure => present, }
