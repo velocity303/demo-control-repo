@@ -21,7 +21,7 @@ class profile::app::myapp (
   file { $doc_root:
     ensure => directory,
     owner  => 'apache',
-    group  => 'apache',,
+    group  => 'apache',
     mode   => '0755',
   }
 
