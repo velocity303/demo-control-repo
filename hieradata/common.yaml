@@ -9,3 +9,4 @@ base_packages:
  - mlocate
  - wget
  - curl
+profile::puppet::app_orch_settings::setting: true
