@@ -31,7 +31,24 @@ class profile::app::myapp (
     docroot => $doc_root,
     require => File[$doc_root],
   }
-  
+
+  file { ['/etc/facter', '/etc/facter/facts.d']:
+    ensure => directory,
+  }
+
+  $myapp_version = hiera('myapp-build-version')
+
+  file { '/etc/facter/facts.d/myapp_version.txt':
+    ensure  => present,
+    content => "myapp_version=${myapp_version}",
+    notify  => Exec['refresh yum cache'],
+  }
+
+  exec { 'refresh yum cache':
+    command     => '/bin/yum makecache fast',
+    before      => Package['myapp'],
+    refreshonly => true,
+  }
   package { 'myapp':
     ensure => hiera('myapp-build-version'),
   }
