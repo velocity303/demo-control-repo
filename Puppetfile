@@ -48,7 +48,8 @@ mod 'stahnma/epel'
 mod 'lwf/remote_file'
 mod 'puppet/archive'
 mod 'jenkins',
-  :git => 'https://github.com/jenkinsci/puppet-jenkins.git'
+  :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
+  :ref => '1342f52be76206692e9b760f9437af35402e831e'
 
 ###############################################################################
 # Other Forge Modules
