@@ -2,4 +2,5 @@
 class role::jenkins_slave {
   include profile::baseline
   include profile::inf::jenkins::slave
+  include puppet_enterprise::profile::controller
 }
