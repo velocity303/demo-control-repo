@@ -25,9 +25,9 @@ define profile::cloud::aws::linuxnode (
     security_groups   => $security_groups,
     subnet            => $subnet,
     tags              => {
-      'department'    => $pp_department,
-      'project'       => $pp_project,
-      'created_by'    => $pp_created_by, 
+      'department' => $pp_department,
+      'project'    => $pp_project,
+      'created_by' => $pp_created_by,
     },
     user_data         => template('data/bootstrap_agent.sh.erb'),
   }

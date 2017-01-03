@@ -11,8 +11,8 @@ class profile::example::registry {
   }
 
   registry_value { 'HKEY_LOCAL_MACHINE\Software\Demonstration\value2':
-    type         => dword,
-    data         => '0xFFFFFFFF',
+    type => dword,
+    data => '0xFFFFFFFF',
   }
 
   # TODO: this resource has problems in Puppet 4+. Figure out and resolve.

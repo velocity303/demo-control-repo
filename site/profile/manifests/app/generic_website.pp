@@ -25,11 +25,11 @@ class profile::app::generic_website {
       }
 
       iis::manage_site { $::fqdn:
-        site_path   => $doc_root,
-        port        => '80',
-        ip_address  => '*',
-        app_pool    => 'generic_website',
-        require     => [
+        site_path  => $doc_root,
+        port       => '80',
+        ip_address => '*',
+        app_pool   => 'generic_website',
+        require    => [
                           Windowsfeature['IIS'],
                           Iis::Manage_app_pool['generic_website']
                         ]

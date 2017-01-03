@@ -16,14 +16,14 @@ class profile::splunk (
   }
 
   firewall { '100 allow connections to splunk web service':
-    proto   => 'tcp',
-    dport   => $web_port,
-    action  => 'accept',
+    proto  => 'tcp',
+    dport  => $web_port,
+    action => 'accept',
   }
   firewall { '100 allow connections to splunk logging service':
-    proto   => 'tcp',
-    dport   => $logging_port,
-    action  => 'accept',
+    proto  => 'tcp',
+    dport  => $logging_port,
+    action => 'accept',
   }
 
 }

@@ -41,22 +41,22 @@ class profile::inf::nfsserver (
 
   # Standard RPC 4.0 portmapper rules
   firewall { '100 allow RPC 4.0 portmapper TCP connections':
-    proto   => 'tcp',
-    dport   => '111',
+    proto => 'tcp',
+    dport => '111',
   }
   firewall { '100 allow RPC 4.0 portmapper UDP connections':
-    proto   => 'udp',
-    dport   => '111',
+    proto => 'udp',
+    dport => '111',
   }
 
   # Standard NFSD rules
   firewall { '100 allow nfsd TCP connections':
-    proto   => 'tcp',
-    dport   => '2049',
+    proto => 'tcp',
+    dport => '2049',
   }
   firewall { '100 allow nfsd UDP connections':
-    proto   => 'udp',
-    dport   => '2049',
+    proto => 'udp',
+    dport => '2049',
   }
 
   # Set portmapper fixed ports
@@ -87,36 +87,36 @@ class profile::inf::nfsserver (
 
   # Set firewall rules for portmapper fixed ports
   firewall { '100 allow lockd TCP connections':
-    proto   => 'tcp',
-    dport   => $lockd_tcpport,
+    proto => 'tcp',
+    dport => $lockd_tcpport,
   }
   firewall { '100 allow lockd UDP connections':
-    proto   => 'udp',
-    dport   => $lockd_udpport,
+    proto => 'udp',
+    dport => $lockd_udpport,
   }
   firewall { '100 allow mountd TCP connections':
-    proto   => 'tcp',
-    dport   => $mountd_port,
+    proto => 'tcp',
+    dport => $mountd_port,
   }
   firewall { '100 allow mountd UDP connections':
-    proto   => 'udp',
-    dport   => $mountd_port,
+    proto => 'udp',
+    dport => $mountd_port,
   }
   firewall { '100 allow rquotad TCP connections':
-    proto   => 'tcp',
-    dport   => $rquotad_port,
+    proto => 'tcp',
+    dport => $rquotad_port,
   }
   firewall { '100 allow rquotad UDP connections':
-    proto   => 'udp',
-    dport   => $rquotad_port,
+    proto => 'udp',
+    dport => $rquotad_port,
   }
   firewall { '100 allow statd TCP connections':
-    proto   => 'tcp',
-    dport   => $statd_port,
+    proto => 'tcp',
+    dport => $statd_port,
   }
   firewall { '100 allow statd UDP connections':
-    proto   => 'udp',
-    dport   => $statd_port,
+    proto => 'udp',
+    dport => $statd_port,
   }
 
 }

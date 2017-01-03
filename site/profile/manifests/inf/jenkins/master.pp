@@ -12,12 +12,12 @@ class profile::inf::jenkins::master {
   transition { 'create my groovy init script':
       resource   => File['/tmp/init.groovy'],
       attributes => {
-        ensure     => present,
-        content    => 'def instance=jenkins.model.Jenkins.instance
+        ensure  => present,
+        content => 'def instance=jenkins.model.Jenkins.instance
       instance.setSlaveAgentPort(40196)
       instance.save()',
       },
-      prior_to => Exec['update jnlp port'],
+      prior_to   => Exec['update jnlp port'],
   }
 
   exec { 'update jnlp port':

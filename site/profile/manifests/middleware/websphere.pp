@@ -37,8 +37,8 @@ class profile::websphere (
     java_home                  => $::java_default_home,
     acceptLicense              => true
   }
-  class { "wlp::install": } ->
-  class { "wlp::create_server": } ->
-  class { "wlp::install_application": } ->
-  class { "wlp::start_server": }
+  class { 'wlp::install': } ->
+  class { 'wlp::create_server': } ->
+  class { 'wlp::install_application': } ->
+  class { 'wlp::start_server': }
 }

@@ -11,7 +11,7 @@ define profile::cloud::azure::linux (
       local_port  => 22,
       public_port => 22,
       protocol    => 'TCP',
-    }, { 
+    }, {
       name        => 'app',
       local_port  => $port,
       public_port => $port,

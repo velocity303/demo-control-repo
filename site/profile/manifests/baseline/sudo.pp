@@ -4,11 +4,11 @@ class profile::baseline::sudo {
     ensure => present,
   }
   sudo::conf { 'wheel':
-    content => "%wheel ALL=(ALL) ALL",
+    content => '%wheel ALL=(ALL) ALL',
   }
   if $::virtual == 'virtualbox' {
     sudo::conf { 'vagrant':
-      content => "vagrant ALL=(ALL) NOPASSWD:ALL",
+      content => 'vagrant ALL=(ALL) NOPASSWD:ALL',
     }
   }
 }

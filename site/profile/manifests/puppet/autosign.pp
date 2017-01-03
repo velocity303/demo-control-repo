@@ -9,6 +9,6 @@ class profile::puppet::autosign {
     path    => $settings::config,
     section => 'master',
     setting => 'autosign',
-    value   => 'true',
+    value   => true,
   }
 }

@@ -22,7 +22,7 @@ class profile::baseline::users {
     user { 'vagrant':
       shell  => '/bin/bash',
       ensure => present,
-      groups  => ['ssh'],
+      groups => ['ssh'],
     }
   }
 }

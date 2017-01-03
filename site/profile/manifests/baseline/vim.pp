@@ -3,7 +3,7 @@ class profile::baseline::vim {
   case $osfamily {
     'RedHat': { $vim_pkg = 'vim-enhanced' }
     'Debian': { $vim_pkg = 'vim' }
-    default: { fail("unsupported operating system") }
+    default: { fail('unsupported operating system') }
   }
   $users = {
    'james' => '/home/james',

@@ -5,12 +5,12 @@ class profile::inf::fileserver {
   ensure_resource('file', '/opt/fileserver', { 'ensure' => 'directory', 'owner' => 'apache', 'group' => 'apache'})
 
   apache::vhost { 'fileserver':
-    vhost_name     => '*',
-    port           => '80',
-    docroot        => '/opt/fileserver',
-    priority       => '10',
-    docroot_owner  => 'apache',
-    docroot_group  => 'apache',
+    vhost_name    => '*',
+    port          => '80',
+    docroot       => '/opt/fileserver',
+    priority      => '10',
+    docroot_owner => 'apache',
+    docroot_group => 'apache',
   }
 
   file { '/var/cache/yumrepos':
