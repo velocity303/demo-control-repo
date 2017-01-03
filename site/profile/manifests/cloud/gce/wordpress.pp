@@ -1,4 +1,4 @@
-class profile::gce::wordpress {
+class profile::cloud::gce::wordpress {
   gce_instance { 'wordpress-01':
     ensure         => present,
     zone           => 'us-central1-f',

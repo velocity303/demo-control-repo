@@ -1,4 +1,4 @@
-class profile::windows::chocolatey (
+class profile::inf::chocolatey (
   #$chocolatey_download_url = undef,
 ) {
 

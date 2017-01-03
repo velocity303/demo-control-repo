@@ -1,6 +1,6 @@
 class profile::cloud::azure::manager (
- $subscription_id = 'something',
- $cert_path = 'something',
+  $subscription_id = 'something',
+  $cert_path = 'something',
 ){
   package { 'azure-cli':
     ensure   => present,

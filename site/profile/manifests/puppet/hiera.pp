@@ -5,12 +5,12 @@ class profile::puppet::hiera {
       backends        => ['yaml','eyaml','http'],
       backend_options => {
         'http' => {
-           'host'          => 'jenkins01.infrastructure.lab',
-           'port'          => 8080,
-           'output'        => 'json',
-           'cache_timeout' => 10,
-           'failure'       => 'graceful',
-           'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
+          'host'          => 'jenkins01.infrastructure.lab',
+          'port'          => 8080,
+          'output'        => 'json',
+          'cache_timeout' => 10,
+          'failure'       => 'graceful',
+          'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
         }
       },
       hierarchy       => [
@@ -34,12 +34,12 @@ class profile::puppet::hiera {
       backends        => ['yaml','eyaml','http'],
       backend_options => {
         'http' => {
-           'host'          => 'jenkins01.infrastructure.lab',
-           'port'          => 8080,
-           'output'        => 'json',
-           'cache_timeout' => 10,
-           'failure'       => 'graceful',
-           'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
+          'host'          => 'jenkins01.infrastructure.lab',
+          'port'          => 8080,
+          'output'        => 'json',
+          'cache_timeout' => 10,
+          'failure'       => 'graceful',
+          'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
         }
       },
       hierarchy       => [

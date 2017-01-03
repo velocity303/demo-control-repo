@@ -1,4 +1,4 @@
-class profile::example::wordpress {
+class profile::app::wordpress {
   include apache
   include apache::mod::php
   include mysql::server

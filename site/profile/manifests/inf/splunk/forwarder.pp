@@ -1,4 +1,4 @@
-class profile::splunk::forwarder (
+class profile::inf::splunk::forwarder (
   $server,
   $splunkd_port  = '8089',
   $logging_port  = '9997',

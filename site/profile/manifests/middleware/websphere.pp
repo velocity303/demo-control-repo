@@ -1,4 +1,4 @@
-class profile::websphere (
+class profile::middleware::websphere (
   $app_name = 'sample-1.2',
   $port     = '9080',
 ){

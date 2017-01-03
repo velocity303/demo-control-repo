@@ -1,4 +1,4 @@
-class profile::hashicorp::vault {
+class profile::inf::vault {
   class { '::vault':
     config_hash  => {
       'backend'       => {

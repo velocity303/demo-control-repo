@@ -1,4 +1,4 @@
-class profile::splunk (
+class profile::inf::splunk (
   $web_port      = '8000',
   $splunkd_port  = '8090',
   $logging_port  = '9997',

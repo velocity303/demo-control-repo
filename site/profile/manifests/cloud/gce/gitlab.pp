@@ -1,4 +1,4 @@
-class profile::gce::gitlab {
+class profile::cloud::gce::gitlab {
   gce_instance { 'gitlab-01':
     ensure         => present,
     zone           => 'us-central1-f',

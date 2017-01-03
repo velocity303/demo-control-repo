@@ -1,4 +1,4 @@
-class profile::inf::ftpclient {
+class profile::inf::ftp {
 
   # FTP Server filename
   $dirs = [

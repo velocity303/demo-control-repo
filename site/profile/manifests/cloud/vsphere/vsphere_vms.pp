@@ -1,4 +1,4 @@
-class profile::vsphere::vsphere_vms (
+class profile::cloud::vsphere::vsphere_vms (
   $status            = 'running',
   $vspheredatacenter = 'west1',
   $template          = "/${vspheredatacenter}/vm/Templates/centos7",

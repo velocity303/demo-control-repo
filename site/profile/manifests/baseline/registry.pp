@@ -1,4 +1,4 @@
-class profile::example::registry {
+class profile::baseline::registry {
 
   registry_key { 'HKEY_LOCAL_MACHINE\Software\Demonstration':
     ensure       => present,

@@ -1,4 +1,4 @@
-class profile::gce::sensuserver {
+class profile::cloud::gce::sensuserver {
   gce_instance { 'sensuserver-01':
     ensure         => present,
     zone           => 'us-central1-f',

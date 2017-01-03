@@ -1,4 +1,4 @@
-class profile::wso2 {
+class profile::middleware::wso2 {
   include wso2
   user { 'esb1':
     ensure => present,

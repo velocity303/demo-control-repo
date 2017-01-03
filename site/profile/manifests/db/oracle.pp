@@ -1,5 +1,5 @@
 # See Doc
-class profile::oracle::db {
+class profile::db::oracle {
   $install_type        = hiera('oracle_install_type', 'EE')
   $install_version     = hiera('oracle_install_version', '12.1.0.2')
   $oracle_base         = hiera('oracle_base', '/oracle')

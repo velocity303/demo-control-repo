@@ -1,4 +1,4 @@
-class profile::example::rgbank(
+class profile::app::rgbank (
   $db_host     = 'localhost',
   $db_name     = 'wordpress',
   $db_user     = 'wordpress',

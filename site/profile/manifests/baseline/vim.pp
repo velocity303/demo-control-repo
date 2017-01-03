@@ -6,8 +6,8 @@ class profile::baseline::vim {
     default: { fail('unsupported operating system') }
   }
   $users = {
-   'james' => '/home/james',
-   'root'  => '/root'
+    'james' => '/home/james',
+    'root'  => '/root'
   }
   package { $vim_pkg:
     ensure => installed,
