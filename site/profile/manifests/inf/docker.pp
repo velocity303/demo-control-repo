@@ -2,7 +2,7 @@
 class profile::inf::docker {
   include ::docker
   docker::image { 'busybox':
-    ensure  => present,
+    ensure  = present,
     require => Class['docker']
   }
 }
