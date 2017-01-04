@@ -34,7 +34,7 @@ class profile::inf::nfsserver (
     path   => '/etc/sysconfig/nfs',
     notify => Service['nfs'],
   }
-  
+
   service { 'nfs':
     ensure => running,
   }
