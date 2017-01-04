@@ -14,7 +14,7 @@ define profile::cloud::aws::linuxnode (
   $master_host = $::fqdn,
   $agent_role = 'base',
 ) {
-  
+
   ec2_instance { $nodename:
     ensure            => 'running',
     availability_zone => $availability_zone,
