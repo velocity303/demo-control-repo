@@ -38,7 +38,7 @@ class profile::inf::jenkins::master {
     proto   => udp,
     action  => accept,
   }
-  
+
   firewall { '100 allow jenkins-swarm through the firewall':
     dport  => '40196',
     proto  => tcp,
