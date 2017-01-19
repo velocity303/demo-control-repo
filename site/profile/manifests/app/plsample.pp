@@ -44,6 +44,10 @@ class profile::app::plsample (
       catalina_base          => $catalina_dir,
       catalina_home          => $catalina_dir,
       before                 => Tomcat::War["plsample-${plsample_version}.war"],
+    }->
+
+    tomcat::setenv::entry {'JAVA_OPTS':
+      value => "-Djava.security.egd=file:/dev/./urandom",
     }
 
     tomcat::war { "plsample-${plsample_version}.war" :
