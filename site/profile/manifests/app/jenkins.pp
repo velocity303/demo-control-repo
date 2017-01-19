@@ -2,7 +2,7 @@ class profile::app::jenkins (
   String $jenkins_version      = 'latest',
   String $tomcat_major_version = '7',
 ) {
-  include ::profile::firewall
+  #  include ::profile::firewall
 
   case $tomcat_major_version {
     '6': {
