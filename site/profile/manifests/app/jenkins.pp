@@ -6,22 +6,22 @@ class profile::app::jenkins (
 
   case $tomcat_major_version {
     '6': {
-      $tomcat_version = '6.0.45'
+      $tomcat_version = '6.0.48'
       $catalina_dir = '/opt/apache-tomcat6'
       $tomcat_other_versions = [ '7', '8']
     }
     '7': {
-      $tomcat_version = '7.0.69'
+      $tomcat_version = '7.0.73'
       $catalina_dir = '/opt/apache-tomcat7'
       $tomcat_other_versions = [ '6', '8']
     }
     '8': {
-      $tomcat_version = '8.0.36'
+      $tomcat_version = '8.0.39'
       $catalina_dir = '/opt/apache-tomcat8'
       $tomcat_other_versions = [ '6', '7']
     }
     default: {
-      $tomcat_version = '6.0.44'
+      $tomcat_version = '6.0.48'
       $catalina_dir = '/opt/apache-tomcat6'
       $tomcat_other_versions = [ '7', '8']
     }
