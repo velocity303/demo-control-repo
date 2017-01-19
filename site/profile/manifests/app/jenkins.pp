@@ -61,6 +61,10 @@ class profile::app::jenkins (
       notify => Tomcat::War["jenkins-${jenkins_version}.war"],
     }
 
+    tomcat::setenv::entry {'JAVA_OPTS':
+      value => "-Djava.security.egd=file:/dev/./urandom",
+    }
+
     tomcat::war { "jenkins-${jenkins_version}.war" :
       war_source    => "http://mirror.xmission.com/jenkins/war-stable/${jenkins_version}/jenkins.war",
       catalina_base => $catalina_dir,
