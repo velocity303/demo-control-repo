@@ -46,7 +46,8 @@ mod 'nanliu/staging'
 # Other Approved Modules
 
 mod 'puppet/hiera'
-mod 'puppet/iis', '2.0.2'
+mod 'iis',
+  :git => 'https://github.com/voxpupuli/puppet-iis.git'
 mod 'puppet/windowsfeature'
 mod 'vshn/gitlab'
 mod 'nanliu/staging'
