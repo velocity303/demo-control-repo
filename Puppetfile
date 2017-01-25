@@ -22,6 +22,9 @@ mod 'puppetlabs/mysql'
 mod 'puppetlabs/aws'
 mod 'puppetlabs/azure'
 mod 'puppetlabs/reboot'
+mod 'puppetlabs/chocolatey'
+mod 'puppetlabs/powershell'
+mod 'puppetlabs/acl'
 
 ###############################################################################
 # Other Puppet Created Modules
@@ -42,6 +45,8 @@ mod 'nanliu/staging'
 # Other Approved Modules
 
 mod 'puppet/hiera'
+mod 'puppet/iis'
+mod 'puppet/windowsfeature'
 mod 'vshn/gitlab'
 mod 'nanliu/staging'
 mod 'stahnma/epel'
@@ -67,6 +72,7 @@ mod 'derdanne/nfs'
 mod 'ghoneycutt/selinux'
 mod 'biemond/wildfly'
 mod 'jethrocarr/initfact'
+mod 'chocolatey/chocolatey_server'
 
 
 ###############################################################################
