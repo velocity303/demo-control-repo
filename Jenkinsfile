@@ -18,7 +18,7 @@ node {
       puppet.codeDeploy 'production'
     }
 
-    stage ('Deploy change to production') {
-      puppet.job 'production', query: 'nodes { catalog_environment = "production" }' 
-    }
+//    stage ('Deploy change to production') {
+//      puppet.job 'production', query: 'nodes { catalog_environment = "production" }' 
+//    }
 }
