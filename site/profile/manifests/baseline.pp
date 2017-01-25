@@ -15,5 +15,6 @@ class profile::baseline {
   elsif $::kernel == 'windows' {
     include profile::baseline::winpackages
     include profile::baseline::chocolatey
+    include profile::baseline::winusers
   }
 }
