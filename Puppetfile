@@ -25,6 +25,7 @@ mod 'puppetlabs/reboot'
 mod 'puppetlabs/chocolatey'
 mod 'puppetlabs/powershell'
 mod 'puppetlabs/acl'
+mod 'puppetlabs/registry'
 
 ###############################################################################
 # Other Puppet Created Modules
