@@ -2,21 +2,20 @@ class profile::app::plsample (
   String  $plsample_version     = '1.2',
   String  $tomcat_major_version = '7',
 ) {
-  include profile::firewall
 
   case $tomcat_major_version {
     '6': {
-      $tomcat_version = '6.0.44'
+      $tomcat_version = '6.0.48'
       $catalina_dir = '/opt/apache-tomcat6'
       $tomcat_other_versions = [ '7', '8']
     }
     '7': {
-      $tomcat_version = '7.0.64'
+      $tomcat_version = '7.0.73'
       $catalina_dir = '/opt/apache-tomcat7'
       $tomcat_other_versions = [ '6', '8']
     }
     '8': {
-      $tomcat_version = '8.0.26'
+      $tomcat_version = '8.0.39'
       $catalina_dir = '/opt/apache-tomcat8'
       $tomcat_other_versions = [ '6', '7']
     }
@@ -40,15 +39,19 @@ class profile::app::plsample (
 
     tomcat::instance{ "tomcat${tomcat_major_version}":
       install_from_source    => true,
-      source_url             => "http://master.inf.puppetlabs.demo/tomcat/apache-tomcat-${tomcat_version}.tar.gz",
+      source_url             => "http://apache.mirrors.pair.com/tomcat/tomcat-${tomcat_major_version}/v${tomcat_version}/bin/apache-tomcat-${tomcat_version}.tar.gz",
       source_strip_first_dir => true,
       catalina_base          => $catalina_dir,
       catalina_home          => $catalina_dir,
       before                 => Tomcat::War["plsample-${plsample_version}.war"],
+    }->
+
+    tomcat::setenv::entry {'JAVA_OPTS':
+      value => "-Djava.security.egd=file:/dev/./urandom",
     }
 
     tomcat::war { "plsample-${plsample_version}.war" :
-      war_source    => "http://master.inf.puppetlabs.demo/tomcat/plsample-${plsample_version}.war",
+      war_source    => "http://fileserver.infrastructure.lab/plsample-${plsample_version}.war",
       catalina_base => $catalina_dir,
       notify        => File["${catalina_dir}/webapps/plsample"],
     }
@@ -125,7 +128,7 @@ class profile::app::plsample (
 
     remote_file { "C:/Program Files/Apache Software Foundation/Tomcat ${tomcat_major_version}.0/webapps/plsample-${plsample_version}.war":
       ensure  => latest,
-      source  => "http://master.inf.puppetlabs.demo/tomcat/plsample-${plsample_version}.war",
+      source  => "http://fileserver.infrastructure.lab/plsample-${plsample_version}.war",
       require => Service["tomcat${tomcat_major_version}"],
     }
   }

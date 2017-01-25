@@ -12,4 +12,10 @@ class profile::app::jboss_helloworld (
   wildfly::deployment { 'jboss-helloworld.war':
     source    => $source,
   }
+
+  firewall { '100 allow jboss access':
+    dport  => [8080],
+    proto  => tcp,
+    action => accept,
+  }
 }

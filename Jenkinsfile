@@ -1,6 +1,6 @@
 node {
     stage ('Checkout Control Repo') {
-      git url: 'https://github.com/velocity303/demo-control-repo.git', branch: 'production'
+      checkout scm
     }
 
     stage ('Check Style') {
