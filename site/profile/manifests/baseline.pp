@@ -13,6 +13,5 @@ class profile::baseline {
     include profile::baseline::selinux
   }
   elsif $::kernel == 'windows' {
-   
   }
 }
