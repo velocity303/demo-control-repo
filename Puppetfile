@@ -74,8 +74,6 @@ mod 'derdanne/nfs'
 mod 'ghoneycutt/selinux'
 mod 'biemond/wildfly'
 mod 'jethrocarr/initfact'
-mod 'chocolatey_server',
-  :git => 'https://github.com/gceraso/puppet-chocolatey_server.git'
 
 
 ###############################################################################
