@@ -5,4 +5,7 @@ class profile::baseline::winpackages {
   package { 'jre8':
     ensure => present,
   }
+  package {'notepadplusplus':
+    ensure => present,
+  }
 }
