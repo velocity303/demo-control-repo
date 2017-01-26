@@ -8,4 +8,9 @@ class profile::baseline::winpackages {
   package {'notepadplusplus':
     ensure => present,
   }
+
+  package {'cordova':
+    ensure   => present,
+    provider => npm,
+  }
 }
