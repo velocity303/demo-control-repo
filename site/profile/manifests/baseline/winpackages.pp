@@ -9,7 +9,7 @@ class profile::baseline::winpackages {
     ensure => present,
   }
 
-  package {'cordova':
+  package {'colors':
     ensure   => present,
     provider => npm,
   }
