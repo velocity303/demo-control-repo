@@ -74,6 +74,7 @@ mod 'derdanne/nfs'
 mod 'ghoneycutt/selinux'
 mod 'biemond/wildfly'
 mod 'jethrocarr/initfact'
+mod 'puppet/nodejs'
 
 
 ###############################################################################
