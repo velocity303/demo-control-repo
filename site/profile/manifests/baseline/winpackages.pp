@@ -9,6 +9,8 @@ class profile::baseline::winpackages {
     ensure => present,
   }
 
+  include nodejs
+
   package { 'colors':
     ensure   => 'present',
     provider => npm,
