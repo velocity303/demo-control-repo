@@ -9,8 +9,9 @@ class profile::baseline::winpackages {
     ensure => present,
   }
 
-  package {'colors':
-    ensure   => present,
-    provider => npm,
+  nodejs::npm { 'install colors':
+    ensure  => 'present',
+    package => 'colors',
+    target  => 'C:/Windows/System32',
   }
 }
