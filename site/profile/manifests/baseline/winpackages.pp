@@ -8,5 +8,8 @@ class profile::baseline::winpackages {
   package {'notepadplusplus':
     ensure => present,
   }
+  package { 'unzip':
+    ensure => present,
+  }
 
 }
