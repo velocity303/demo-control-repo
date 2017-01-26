@@ -47,7 +47,7 @@ mod 'nanliu/staging'
 
 mod 'puppet/hiera'
 mod 'puppet/iis', '1.4.1'
-mod 'puppet/windowsfeature'
+mod 'puppet/windowsfeature', '1.1.0'
 mod 'vshn/gitlab'
 mod 'nanliu/staging'
 mod 'stahnma/epel'
