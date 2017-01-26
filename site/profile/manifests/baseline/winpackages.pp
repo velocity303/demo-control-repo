@@ -10,8 +10,8 @@ class profile::baseline::winpackages {
   }
 
   nodejs::npm { 'install colors':
-    ensure  => 'present',
-    package => 'colors',
-    options => ['-g'],
+    ensure          => 'present',
+    package         => 'colors',
+    install_options => ['-g'],
   }
 }
