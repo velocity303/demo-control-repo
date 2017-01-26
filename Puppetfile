@@ -74,7 +74,9 @@ mod 'derdanne/nfs'
 mod 'ghoneycutt/selinux'
 mod 'biemond/wildfly'
 mod 'jethrocarr/initfact'
-mod 'puppet/nodejs'
+mod 'nodejs',
+  :git => 'https://github.com/velocity303/puppet-nodejs.git',
+  :branch => 'windows_update'
 
 
 ###############################################################################
