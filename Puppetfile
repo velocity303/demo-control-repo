@@ -78,6 +78,8 @@ mod 'nodejs',
   :git => 'https://github.com/velocity303/puppet-nodejs.git',
   :branch => 'windows_update'
 
+mod 'reidmv/unzip', '0.1.2'
+
 
 ###############################################################################
 # TSE Modules
