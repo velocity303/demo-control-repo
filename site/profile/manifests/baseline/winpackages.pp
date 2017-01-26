@@ -12,6 +12,7 @@ class profile::baseline::winpackages {
   package { 'colors':
     ensure   => 'present',
     provider => npm,
+    require  => Class['nodejs'],
   }
 
 }
