@@ -16,5 +16,6 @@ class profile::baseline {
     include profile::baseline::winpackages
     include profile::baseline::chocolatey
     include profile::baseline::winusers
+    include profile::baseline::registry
   }
 }
