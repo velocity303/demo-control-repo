@@ -3,4 +3,7 @@ class profile::baseline::winusers {
     ensure   => present,
     password => 'Password1',
   }
+  reboot { 'changing administrator':
+    subscribe => User['Administrator'],
+  }
 }
