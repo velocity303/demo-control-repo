@@ -26,6 +26,9 @@ mod 'puppetlabs/chocolatey'
 mod 'puppetlabs/powershell'
 mod 'puppetlabs/acl'
 mod 'puppetlabs/registry'
+mod 'puppetlabs/sqlserver'
+mod 'puppetlabs/mount_iso'
+
 
 ###############################################################################
 # Other Puppet Created Modules
@@ -34,13 +37,11 @@ mod 'puppetlabs/puppetserver_gem'
 mod 'puppetlabs/gcc'
 mod 'puppetlabs/git'
 mod 'puppetlabs/transition'
-#mod 'puppetlabs/gce_compute'
 
 
 ###############################################################################
 # Puppet Community Modules
 
-mod 'nanliu/staging'
 
 ###############################################################################
 # Other Approved Modules
@@ -89,6 +90,11 @@ mod 'openssh',
 mod 'hosts',
    :git => 'https://github.com/velocity303/puppet-module-hosts.git'
 
+mod 'tse_sqlserver',
+   :git => 'https://github.com/puppetlabs/tse-module-tse_sqlserver.git'
+
+mod 'sqlwebapp',
+   :git => 'git@github.com:puppetlabs/tse-module-sqlwebapp.git'
 # Other modules
 ###############################################################################
 #
