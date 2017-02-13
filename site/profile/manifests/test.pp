@@ -1,3 +1,5 @@
 class profile::test {
-  warning('this is a test')
+  notify{ 'this is a test':
+    loglevel => 'info',
+  }
 }
