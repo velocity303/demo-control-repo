@@ -1,3 +1,3 @@
 class profile::test {
-  notice('this is a test')
+  warning('this is a test')
 }
