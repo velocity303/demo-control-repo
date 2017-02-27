@@ -3,6 +3,7 @@ class profile::inf::consul::server (
   $consul_head_ip = $::hostname,
   $bind_addr      = $::ipaddress,
 ) {
+  ensure_packages('unzip')
   if $master_host {
     class { '::consul':
       config_hash => {
@@ -16,6 +17,7 @@ class profile::inf::consul::server (
         'client_addr'      => '0.0.0.0',
         'ui_dir'           => '/opt/consul/ui',
       },
+      require     => Package['unzip'],
     }
   }
   else {
@@ -30,6 +32,7 @@ class profile::inf::consul::server (
         'bind_addr'        => $bind_addr,
         'start_join'       => [$consul_head_ip],
       },
+      require     => Package['unzip'],
     }
   }
   firewall { '100 allow various consul tcp ports':
