@@ -6,7 +6,7 @@ class profile::inf::consul::client {
         'data_dir'   => '/opt/consul',
         'datacenter' => 'vagrant',
         'log_level'  => 'INFO',
-        'node_name'  => $::certname,
+        'node_name'  => $::fqdn,
         'retry_join' => [hiera('consul_node_ip')],
       },
       require        => Package['unzip'],
