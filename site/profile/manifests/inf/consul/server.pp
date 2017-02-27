@@ -42,6 +42,4 @@ class profile::inf::consul::server (
     proto  => udp,
     action => accept,
   }
-
-  }
 }
