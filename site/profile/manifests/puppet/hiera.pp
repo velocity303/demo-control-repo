@@ -2,7 +2,7 @@ class profile::puppet::hiera {
   #Check if puppetserver service is defined, if so manage restart after updating hiera
   if defined(Service['pe-puppetserver']) {
     class {'::hiera':
-      backends        => ['yaml','eyaml'],
+      #backends        => ['yaml','eyaml'],
       #backend_options => {
       #  'http' => {
       #    'host'          => 'jenkins01.infrastructure.lab',
@@ -31,7 +31,7 @@ class profile::puppet::hiera {
   }
   else {
     class {'::hiera':
-      backends        => ['yaml','eyaml'],
+      #backends        => ['yaml','eyaml'],
       #backend_options => {
       #  'http' => {
       #    'host'          => 'jenkins01.infrastructure.lab',
