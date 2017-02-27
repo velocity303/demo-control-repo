@@ -1,5 +1,5 @@
 class profile::inf::consul::client {
-  if trusted['extensions']['pp_role'] != 'consul' {
+  if $::trusted['extensions']['pp_role'] != 'consul' {
     ensure_packages('unzip')
     class { '::consul':
       config_hash    => {
