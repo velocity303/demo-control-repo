@@ -88,6 +88,12 @@ class profile::app::generic_website {
         creates => "${doc_root}/index.html",
       }
 
+      consul::check { 'monitor website':
+        ensure   => present,
+        http     => 'http://localhost:80',
+        interval => '10',
+      }
+
     }
 
 
