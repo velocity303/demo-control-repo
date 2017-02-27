@@ -32,4 +32,16 @@ class profile::inf::consul::server (
       },
     }
   }
+  firewall { '100 allow various consul tcp ports':
+    dport  => [ 8300, 8301, 8302, 8400, 8500, 8600 ],
+    proto  => tcp,
+    action => accept,
+  }
+  firewall { '100 allow various consul udp ports':
+    dport  => [ 8301, 8302, 8600 ],
+    proto  => udp,
+    action => accept,
+  }
+
+  }
 }
