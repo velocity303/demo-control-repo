@@ -3,8 +3,8 @@ ntp::servers:
   - time1.google.com
   - time2.google.com
   - time3.google.com
-  - time5.google.com
-puppet_ip: 192.168.0.157
+  - time4.google.com
+puppet_ip: 192.168.1.5
 base_packages:
  - mlocate
  - wget
