@@ -87,11 +87,15 @@ class profile::app::generic_website {
         require => Apache::Vhost[$::fqdn],
         creates => "${doc_root}/index.html",
       }
-
-      consul::check { 'monitor website':
-        ensure   => present,
-        http     => 'http://localhost:80',
-        interval => '10',
+      consul::service { 'apache':
+        checks  => [
+          {
+            http     => 'http://localhost:80',
+            interval => '10s'
+          }
+        ],
+        port    => 80,
+        tags    => 'generic_website',
       }
 
     }
