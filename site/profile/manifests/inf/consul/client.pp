@@ -8,7 +8,7 @@ class profile::inf::consul::client {
         'log_level'  => 'INFO',
         'node_name'  => $::name,
         'retry_join' => [hiera('consul_node_ip')],
-      }
+      },
       require        => Package['unzip'],
     }
   }
