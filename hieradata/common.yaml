@@ -14,3 +14,4 @@ puppet_enterprise::profile::puppetdb::node_purge_ttl: "1s"
 puppet_enterprise::profile::console::display_local_time: true
 tse_sqlserver::mount::iso_source: http://192.168.0.164
 tse_sqlserver::admin_user: Administrator
+consul_node_ip: 192.168.1.15
