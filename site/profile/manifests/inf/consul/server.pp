@@ -1,6 +1,7 @@
 class profile::inf::consul::server (
   $master_host    = true,
   $consul_head_ip = $::hostname,
+  $bind_addr      = $::ipaddress,
 ) {
   if $master_host {
     class { '::consul':
@@ -11,7 +12,7 @@ class profile::inf::consul::server (
         'log_level'        => 'INFO',
         'node_name'        => $::hostname,
         'server'           => true,
-        'bind_addr'        => $::networking[interfaces][eth1][ip],
+        'bind_addr'        => $bind_addr,
         'client_addr'      => '0.0.0.0',
         'ui_dir'           => '/opt/consul/ui',
       },
@@ -26,7 +27,7 @@ class profile::inf::consul::server (
         'log_level'        => 'INFO',
         'node_name'        => $::hostname,
         'server'           => true,
-        'bind_addr'        => $::networking[interfaces][eth1][ip],
+        'bind_addr'        => $bind_addr,
         'start_join'       => [$consul_head_ip],
       },
     }
