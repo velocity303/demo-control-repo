@@ -80,7 +80,7 @@ mod 'nodejs',
   :branch => 'windows_update'
 
 mod 'reidmv/unzip', '0.1.2'
-mod 'rhoml/vault'
+mod 'jsok/vault'
 
 
 ###############################################################################
