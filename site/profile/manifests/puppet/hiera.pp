@@ -61,4 +61,8 @@ class profile::puppet::hiera {
     ensure   => present,
     provider => puppetserver_gem,
   }
+  package { 'hiera-vault':
+    ensure   => present,
+    provider => puppetserver_gem,
+  }
 }
