@@ -7,7 +7,7 @@ class profile::inf::vault {
       },
       listener      => {
         'tcp' => {
-          'address'     => "${::fqdn}:8200",
+          'address'     => "127.0.1.1:8200",
           'tls_disable' => '1',
         }
       },
