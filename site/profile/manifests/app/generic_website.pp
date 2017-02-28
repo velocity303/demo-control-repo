@@ -90,8 +90,9 @@ class profile::app::generic_website {
       consul::service { 'apache':
         checks  => [
           {
+            id       => 'generic_website',
             http     => 'http://localhost:80',
-            interval => '10s'
+            interval => '10'
           }
         ],
         port    => 80,
