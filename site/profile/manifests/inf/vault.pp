@@ -1,13 +1,14 @@
 class profile::inf::vault {
   class { '::vault':
-      backend       => {
-        'consul'    => {
-          'scheme' => 'http',
+      backend              => {
+        'consul'           => {
+          'scheme'         => 'http',
+          'advertise_addr' => 'http://127.0.1.1:8200',
         }
       },
       listener      => {
         'tcp' => {
-          'address'     => "127.0.1.1:8200",
+          'address'     => "${fqdn}:8200",
           'tls_disable' => '1',
         }
       },
