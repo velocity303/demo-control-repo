@@ -3,12 +3,11 @@ class profile::inf::vault {
       backend              => {
         'consul'           => {
           'scheme'         => 'http',
-          'advertise_addr' => 'http://127.0.1.1:8200',
         }
       },
       listener      => {
         'tcp' => {
-          'address'     => "${fqdn}:8200",
+          'address'     => "127.0.0.1:8200",
           'tls_disable' => '1',
         }
       },
