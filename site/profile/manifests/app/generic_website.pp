@@ -96,7 +96,6 @@ class profile::app::generic_website {
           }
         ],
         port    => 80,
-        tags    => 'generic_website',
       }
 
     }
