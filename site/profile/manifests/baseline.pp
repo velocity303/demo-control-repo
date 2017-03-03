@@ -9,6 +9,9 @@ class profile::baseline {
     include profile::puppet::agent
     include profile::inf::consul::client
     #include profile::baseline::selinux
+    File {
+      require => Host['puppet']
+    }
   }
   elsif $::kernel == 'windows' {
     include profile::baseline::winpackages

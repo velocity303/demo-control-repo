@@ -24,9 +24,6 @@ elsif $::kernel == 'windows' {
   Package { provider => chocolatey, }
 }
 
-File {
-  require => Host['puppet']
-}
 
 node default {
   #  if !empty( $trusted['extensions']['pp_role'] ) {
