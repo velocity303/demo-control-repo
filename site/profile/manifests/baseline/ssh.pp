@@ -1,3 +1,4 @@
 class profile::baseline::ssh {
-  include openssh
+  contain openssh
+  Host <| |> -> Class['openssh']
 }

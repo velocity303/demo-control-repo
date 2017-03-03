@@ -25,8 +25,6 @@ elsif $::kernel == 'windows' {
   Package { provider => chocolatey, }
 }
 
-Host <| |> -> File <| |>
-
 node default {
   #  if !empty( $trusted['extensions']['pp_role'] ) {
   #  include "role::${trusted['extensions']['pp_role']}"
