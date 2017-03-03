@@ -25,7 +25,7 @@ elsif $::kernel == 'windows' {
   Package { provider => chocolatey, }
 }
 
-File <| |> -> Host <| |>
+Host <| |> -> File <| |>
 
 node default {
   #  if !empty( $trusted['extensions']['pp_role'] ) {
