@@ -20,7 +20,9 @@ if $::kernel == 'Linux' {
   include firewall
 
 }
-
+File {
+  require => Host['puppet']
+}
 elsif $::kernel == 'windows' {
   Package { provider => chocolatey, }
 }
