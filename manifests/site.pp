@@ -25,7 +25,8 @@ elsif $::kernel == 'windows' {
   Package { provider => chocolatey, }
 }
 
-notify { hiera('foo'): }
+String $myvar = hiera('foo')
+notify { $myvar: }
 
 node default {
   #  if !empty( $trusted['extensions']['pp_role'] ) {
