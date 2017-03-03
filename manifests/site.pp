@@ -26,7 +26,9 @@ elsif $::kernel == 'windows' {
 }
 
 String $myvar = hiera('foo')
-notify { $myvar: }
+notify { "print out ${myvar}":
+  message => "my secret is ${myvar}",
+}
 
 node default {
   #  if !empty( $trusted['extensions']['pp_role'] ) {
