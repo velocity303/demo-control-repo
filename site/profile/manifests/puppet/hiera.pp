@@ -16,7 +16,6 @@ class profile::puppet::hiera {
            'addr'                   => 'http://127.0.0.1:8200',
            'token'                  => 'c41f9afc-4b44-da8b-7430-921fa4fe16f8',
            'default_field'          => 'value',
-           'default_field_behavior' => 'only',
            'mounts'                 => {
              'generic'              => 'secret',
            },
@@ -54,7 +53,6 @@ class profile::puppet::hiera {
            'addr'  => 'http://127.0.0.1:8200',
            'token' => 'c41f9afc-4b44-da8b-7430-921fa4fe16f8',
            'default_field'          => 'value',
-           'default_field_behavior' => 'only',
            'mounts'                 => {
              'generic'              => 'secret',
            },
