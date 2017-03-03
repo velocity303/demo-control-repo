@@ -13,7 +13,7 @@ class profile::puppet::hiera {
       #    'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
       #  }
          'vault'                    => {
-           'addr'                   => 'http://192.168.1.16:8200',
+           'addr'                   => 'http://127.0.0.1:8200',
            'token'                  => 'c41f9afc-4b44-da8b-7430-921fa4fe16f8',
            'default_field'          => 'value',
            'mounts'                 => {
@@ -50,7 +50,7 @@ class profile::puppet::hiera {
       #    'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
       #  }
          'vault'   => {
-           'addr'  => 'http://192.168.1.16:8200',
+           'addr'  => 'http://127.0.0.1:8200',
            'token' => 'c41f9afc-4b44-da8b-7430-921fa4fe16f8',
            'default_field'          => 'value',
            'mounts'                 => {
