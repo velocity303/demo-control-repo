@@ -98,6 +98,19 @@ class profile::app::generic_website {
         port    => 80,
       }
 
+      firewall { '100 allow https':
+        proto  => 'tcp',
+        dport  => '443',
+        action => 'accept',
+      }
+
+      firewall { '100 allow http':
+        proto  => 'tcp',
+        dport  => '80',
+        action => 'accept',
+      }
+
+
     }
 
 
