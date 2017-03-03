@@ -5,8 +5,8 @@ class profile::baseline::hosts {
       purge_hosts           => true,
       enable_ipv6_localhost => false,
       fqdn_host_aliases     => [$::hostname, 'puppet'],
-    }
-
+    } ->
+    File <| |>
   }
   else {
     class  { '::hosts':
