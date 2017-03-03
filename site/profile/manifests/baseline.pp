@@ -1,17 +1,15 @@
 class profile::baseline {
   if $::kernel == 'Linux' {
     include profile::baseline::motd
-    include profile::baseline::hosts
-    include profile::baseline::ssh
+    contain profile::baseline::ssh
     include profile::baseline::packages
     include profile::baseline::ntp
     include profile::baseline::path
     include profile::puppet::agent
     include profile::inf::consul::client
     #include profile::baseline::selinux
-    File {
-      require => Host['puppet']
-    }
+    contain profile::baseline::hosts
+    Class['profile::baseline::ssh'] -> Class['profile::baseline::hosts']
   }
   elsif $::kernel == 'windows' {
     include profile::baseline::winpackages
