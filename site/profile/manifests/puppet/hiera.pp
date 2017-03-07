@@ -2,8 +2,8 @@ class profile::puppet::hiera {
   #Check if puppetserver service is defined, if so manage restart after updating hiera
   if defined(Service['pe-puppetserver']) {
     class {'::hiera':
-      backends        => ['yaml','eyaml', 'vault'],
-      backend_options => {
+      #backends        => ['yaml','eyaml', 'vault'],
+      #backend_options => {
       #  'http' => {
       #    'host'          => 'jenkins01.infrastructure.lab',
       #    'port'          => 8080,
@@ -12,15 +12,15 @@ class profile::puppet::hiera {
       #    'failure'       => 'graceful',
       #    'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
       #  }
-         'vault'                    => {
-           'addr'                   => 'http://127.0.0.1:8200',
-           'token'                  => 'c41f9afc-4b44-da8b-7430-921fa4fe16f8',
-           'default_field'          => 'value',
-           'mounts'                 => {
-             'generic'              => 'secret',
-           },
-         },
-      },
+      #   'vault'                    => {
+      #     'addr'                   => 'http://127.0.0.1:8200',
+      #     'token'                  => 'c41f9afc-4b44-da8b-7430-921fa4fe16f8',
+      #     'default_field'          => 'value',
+      #     'mounts'                 => {
+      #       'generic'              => 'secret',
+      #     },
+      #   },
+      #},
       hierarchy       => [
         'secure',
         'nodes/%{hostname}',
@@ -39,8 +39,8 @@ class profile::puppet::hiera {
   }
   else {
     class {'::hiera':
-      backends        => ['yaml','eyaml', 'vault'],
-      backend_options => {
+      #backends        => ['yaml','eyaml', 'vault'],
+      #backend_options => {
       #  'http' => {
       #    'host'          => 'jenkins01.infrastructure.lab',
       #    'port'          => 8080,
@@ -49,15 +49,15 @@ class profile::puppet::hiera {
       #    'failure'       => 'graceful',
       #    'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
       #  }
-         'vault'   => {
-           'addr'  => 'http://127.0.0.1:8200',
-           'token' => 'c41f9afc-4b44-da8b-7430-921fa4fe16f8',
-           'default_field'          => 'value',
-           'mounts'                 => {
-             'generic'              => 'secret',
-           },
-         },
-      },
+      #   'vault'   => {
+      #     'addr'  => 'http://127.0.0.1:8200',
+      #     'token' => 'c41f9afc-4b44-da8b-7430-921fa4fe16f8',
+      #     'default_field'          => 'value',
+      #     'mounts'                 => {
+      #       'generic'              => 'secret',
+      #     },
+      #   },
+      #},
       hierarchy       => [
         'secure',
         'nodes/%{hostname}',
