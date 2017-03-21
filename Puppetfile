@@ -83,6 +83,8 @@ mod 'reidmv/unzip', '0.1.2'
 mod 'jsok/vault'
 mod 'autostructure/artifactory'
 mod 'maestrodev/wget'
+mod 'maestrodev/maven'
+mod 'maestrodev/archiva'
 
 
 ###############################################################################
