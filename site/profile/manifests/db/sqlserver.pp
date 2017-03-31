@@ -62,14 +62,17 @@ class { '::staging':
     security_mode         => 'SQL',
     sa_pwd                => $sa_pass,
     sql_sysadmin_accounts => ['Administrator'],
+    require               => Mount_iso[$iso_path],
   }
   sqlserver_features { 'Management_Studio':
     source   => $source,
     features => ['SSMS'],
+    require  => Mount_iso[$iso_path],
   }
   sqlserver::config{ $db_instance:
     admin_user => 'sa',
     admin_pass => $sa_pass,
+    require  => Mount_iso[$iso_path],
   }
 
   windows_firewall::exception { 'Sql browser access':
