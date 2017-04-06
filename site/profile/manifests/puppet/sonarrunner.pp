@@ -14,4 +14,3 @@ class profile::puppet::sonarrunner {
     ensure => directory,
   }
 }
-}
