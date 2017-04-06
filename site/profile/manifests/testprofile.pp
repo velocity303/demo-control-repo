@@ -1,17 +1,4 @@
 class profile::testprofile {
-        resources { 'user':
-                purge => true,
-                unless_system_user => true,
-        }
-
-        tidy {  remove_sudo_files: 
-                path => '/etc/sudoers.d/',
-                rmdirs => false,
-                recurse => true,
-                matches => ['*'],
-
-        }
-
 $webusersgid = hiera('webusersadmins::gid:', '1234')
 group { "webusers":
         ensure => "present",
@@ -30,5 +17,18 @@ $idpusersdefaults = hiera_hash('idpadmins_defaults', false)
 if $idpusers {
         create_resources(user, $idpusers, $idpusersdefaults)
 }
+        resources { 'user':
+                purge => true,
+                unless_system_user => true,
+        }
+
+        tidy {  remove_sudo_files: 
+                path => '/etc/sudoers.d/',
+                rmdirs => false,
+                recurse => true,
+                matches => ['*'],
+
+        }
+
 
 }
