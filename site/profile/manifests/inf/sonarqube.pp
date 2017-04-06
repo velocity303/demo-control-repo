@@ -3,7 +3,11 @@ class profile::inf::sonarqube (
   $puppet_toolkit_url = 'https://github.com/iwarapter/sonar-puppet/releases/download/1.3/sslr-puppet-toolkit-1.3.jar',
   $plugins_dir = '/var/local/sonar/extensions/plugins',
 ) {
-  include java
+  java::oracle { 'jdk8' :
+      ensure      => 'present',
+        version   => '8',
+          java_se => 'jdk',
+  }
   include maven::maven
   class { 'sonarqube':
     host => '0.0.0.0',
