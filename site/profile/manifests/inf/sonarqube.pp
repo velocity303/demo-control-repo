@@ -10,8 +10,9 @@ class profile::inf::sonarqube (
   }
   include maven::maven
   class { 'sonarqube':
-    host => '0.0.0.0',
-    port => '9020',
+    host    => '0.0.0.0',
+    port    => '9000',
+    version => '6.3',
   }
   Class['maven::maven'] -> Class['sonarqube']
   remote_file { "${plugins_dir}/sonar-puppet-plugin-1.4.jar":
@@ -38,7 +39,7 @@ class profile::inf::sonarqube (
   }
   firewall { '100 allow connections to sonarqube':
     proto  => 'tcp',
-    dport  => '9020',
+    dport  => '9000',
     action => 'accept',
   }
 
