@@ -1,0 +1,13 @@
+---
+idpadmins_defaults:
+   ensure : present
+   shell:  /bin/bash
+   managehome:  true
+   gid:  systemsgrp
+   password_max_age:  -1
+idpusers:
+   monther:
+     home: /home/monther
+     comment: Monther M Yasin
+     uid: 42000
+
