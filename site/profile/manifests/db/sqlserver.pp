@@ -5,7 +5,6 @@ class profile::db::sqlserver (
   $admin_user = 'Administrator',
   $db_instance = 'MYINSTANCE',
   $sa_pass = 'Password$123$',
-  $db_name = 'MyDB',
   $iso = 'SQLServer2014-x64-ENU.iso',
   $iso_source = 'https://s3-us-west-2.amazonaws.com/tseteam/files/tse_sqlserver',
   $iso_drive = 'F',
@@ -61,7 +60,7 @@ class { '::staging':
     source                => $source,
     security_mode         => 'SQL',
     sa_pwd                => $sa_pass,
-    sql_sysadmin_accounts => ['Administrator'],
+    sql_sysadmin_accounts => [$admin_user],
     require               => Mount_iso[$iso_path],
   }
   sqlserver_features { 'Management_Studio':

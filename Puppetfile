@@ -85,6 +85,7 @@ mod 'autostructure/artifactory'
 mod 'maestrodev/wget'
 mod 'maestrodev/maven'
 mod 'maestrodev/archiva'
+mod 'maestrodev/sonarqube'
 
 
 ###############################################################################
@@ -103,3 +104,6 @@ mod 'sqlwebapp',
 # Other modules
 ###############################################################################
 #
+
+mod 'codeanalysis',
+  :git => 'https://github.com/velocity303/puppet-codeanalysis.git'
