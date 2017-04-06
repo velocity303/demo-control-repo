@@ -9,11 +9,7 @@ class profile::inf::sonarqube (
           java_se => 'jdk',
   }
   include maven::maven
-  class { 'sonarqube':
-    host          => '0.0.0.0',
-    port          => '9000',
-    web_java_opts => '-server',
-  }
+  include sonarqube
   Class['maven::maven'] -> Class['sonarqube']
   remote_file { "${plugins_dir}/sonar-puppet-plugin-1.4.jar":
     ensure => present,
