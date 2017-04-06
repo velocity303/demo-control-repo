@@ -5,7 +5,7 @@ idpadmins_defaults:
    managehome:  true
    gid:  systemsgrp
    password_max_age:  -1
-idpusers:
+idpadmins:
    monther:
      home: /home/monther
      comment: Monther M Yasin
