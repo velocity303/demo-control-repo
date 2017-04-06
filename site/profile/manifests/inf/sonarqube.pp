@@ -5,7 +5,7 @@ class profile::inf::sonarqube (
 ) {
   java::oracle { 'jdk8' :
       ensure      => 'present',
-        version   => '8',
+        version   => '7',
           java_se => 'jdk',
   }
   include maven::maven
