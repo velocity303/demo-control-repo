@@ -3,7 +3,6 @@ idpadmins_defaults:
    ensure : present
    shell:  /bin/bash
    managehome:  true
-   gid:  systemsgrp
    password_max_age:  -1
 idpadmins:
    monther:
