@@ -10,7 +10,7 @@ class profile::puppet::sonarrunner {
     sonarqube_server => $sonarqube_server,
     jdbc             => $jdbc,
   }
-  file {‘/etc/sonarrunner’:
+  file {'/etc/sonarrunner':
     ensure => directory,
   }
 }
