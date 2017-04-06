@@ -1,4 +1,4 @@
-class profile::sonarqube (
+class profile::inf::sonarqube (
   $puppet_plugin_url = 'https://github.com/iwarapter/sonar-puppet/releases/download/1.4/sonar-puppet-plugin-1.4.jar',
   $puppet_toolkit_url = 'https://github.com/iwarapter/sonar-puppet/releases/download/1.3/sslr-puppet-toolkit-1.3.jar',
   $plugins_dir = '/var/local/sonar/extensions/plugins',
