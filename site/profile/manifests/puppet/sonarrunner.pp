@@ -1,7 +1,7 @@
 class profile::puppet::sonarrunner {
-  $sonarqube_server = 'http://sonar.inf.lab:9000'
+  $sonarqube_server = 'http://sonar.infrastructure.lab:9000'
   $jdbc             = {
-    url            => 'jdbc:h2:tcp://sonar.inf.lab:9092/sonar',
+    url            => 'jdbc:h2:tcp://sonar.infrastructure.lab:9092/sonar',
     username       => 'sonar',
     password       => 'sonar',
   }
