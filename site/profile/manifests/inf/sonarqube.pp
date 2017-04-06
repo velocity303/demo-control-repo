@@ -5,11 +5,13 @@ class profile::inf::sonarqube (
 ) {
   java::oracle { 'jdk8' :
       ensure      => 'present',
-        version   => '7',
+        version   => '8',
           java_se => 'jdk',
   }
   include maven::maven
-  include sonarqube
+  class { 'sonarqube':
+    version => '6.3',
+  }
   Class['maven::maven'] -> Class['sonarqube']
   remote_file { "${plugins_dir}/sonar-puppet-plugin-1.4.jar":
     ensure => present,
