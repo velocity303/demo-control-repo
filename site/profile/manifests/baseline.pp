@@ -7,7 +7,6 @@ class profile::baseline {
     include profile::baseline::path
     include profile::puppet::agent
     include profile::inf::consul::client
-    #include profile::baseline::selinux
     contain profile::baseline::hosts
     Class['profile::baseline::ssh'] -> Class['profile::baseline::hosts']
 
