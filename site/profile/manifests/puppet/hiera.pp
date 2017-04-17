@@ -2,12 +2,15 @@ class profile::puppet::hiera {
   #Check if puppetserver service is defined, if so manage restart after updating hiera
   if defined(Service['pe-puppetserver']) {
     class {'::hiera':
-      backends        => ['yaml','eyaml', 'http'],
-      backend_options => {
-        'http' => {
+      backends            => ['yaml','eyaml', 'http'],
+      backend_options     => {
+        'http'            => {
           'host'          => 'jenkins01.infrastructure.lab',
           'port'          => 8080,
           'output'        => 'json',
+          'use_auth'      => 'false',
+          'auth_user'     => 'admin',
+          'auth_pass'     => 'puppetlabs',
           'cache_timeout' => 10,
           'failure'       => 'graceful',
           'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
@@ -45,6 +48,9 @@ class profile::puppet::hiera {
           'host'          => 'jenkins01.infrastructure.lab',
           'port'          => 8080,
           'output'        => 'json',
+          'use_auth'      => 'false',
+          'auth_user'     => 'admin',
+          'auth_pass'     => 'puppetlabs',
           'cache_timeout' => 10,
           'failure'       => 'graceful',
           'paths'         => ['/hiera/lookup?scope=%{::trusted.certname}&key=%{key}', '/hiera/lookup?scope=%{::virtual}&key=%{key}','/hiera/lookup?scope=%{::environment}&key=%{key}'],
