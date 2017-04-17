@@ -73,7 +73,7 @@ mod 'kyleanderson/consul'
 mod 'palli/createrepo'
 mod 'derdanne/nfs'
 mod 'ghoneycutt/selinux'
-mod 'biemond/wildfly'
+mod 'biemond/wildfly', '0.5.2'
 mod 'jethrocarr/initfact'
 mod 'nodejs',
   :git => 'https://github.com/velocity303/puppet-nodejs.git',
