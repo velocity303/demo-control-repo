@@ -86,6 +86,7 @@ mod 'maestrodev/wget'
 mod 'maestrodev/maven'
 mod 'maestrodev/archiva'
 mod 'maestrodev/sonarqube'
+mod 'crayfishx/hiera_http'
 
 
 ###############################################################################
