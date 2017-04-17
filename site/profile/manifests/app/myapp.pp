@@ -1,6 +1,6 @@
 class profile::app::myapp (
   $fileserver_host   = 'fileserver',
-  $fileserver_domain = "${::location}.lab",
+  $fileserver_domain = "infrastructure.lab",
 ) {
   yumrepo { 'MyRepo':
     baseurl      => "http://${fileserver_host}.${fileserver_domain}/myrepo/",
