@@ -20,7 +20,7 @@ class profile::puppet::hiera {
       #       'generic'              => 'secret',
       #     },
       #   },
-      #},
+      },
       hierarchy       => [
         'secure',
         'nodes/%{hostname}',
@@ -57,7 +57,7 @@ class profile::puppet::hiera {
       #       'generic'              => 'secret',
       #     },
       #   },
-      #},
+      },
       hierarchy       => [
         'secure',
         'nodes/%{hostname}',
