@@ -21,13 +21,3 @@ hierarchy:
     paths: # Can specify an array of paths instead of a single one.
       - "location/%{location}.yaml"
       - "common.yaml"
-
-  - name: "Hiera-HTTP lookup"
-    lookup_key: hiera_http
-    uris:
-      - "http://jenkins01.infrastructure.lab:8080/hiera/lookup?scope=%{::trusted.certname}"
-      - "http://jenkins01.infrastructure.lab:8080/hiera/lookup?scope=%{::virtual}"
-      - "http://jenkins01.infrastructure.lab:8080/hiera/lookup?scope=%{::environment}"
-    options:
-      output: json
-      failure: graceful
