@@ -5,7 +5,7 @@ class profile::app::jboss_helloworld (
     distribution => 'jdk',
   }->
 
-  include wildfly
+  class { ' wildfly': }
 
   wildfly::deployment { 'jboss-helloworld.war':
     source    => $source,
