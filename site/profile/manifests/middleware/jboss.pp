@@ -1,4 +1,4 @@
-class profile::middleware::wildfly (
+class profile::middleware::jboss (
   $version = '8.0.0',
   $source = 'http://download.jboss.org/wildfly/8.0.0.Final/wildfly-8.0.0.Final.tar.gz'
 ) {
