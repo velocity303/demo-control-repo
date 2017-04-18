@@ -11,6 +11,8 @@ class profile::inf::sonarqube (
   include maven::maven
   class { 'sonarqube':
     version => '5.6.6',
+    user    => 'root',
+    group   => 'root',
   }
   Class['maven::maven'] -> Class['sonarqube']
   remote_file { "${plugins_dir}/sonar-puppet-plugin-1.4.jar":
