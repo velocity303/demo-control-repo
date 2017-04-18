@@ -31,8 +31,9 @@ class profile::inf::sonarqube (
   }
 
   file_line { 'embedded port':
-    path => '/usr/local/sonarqube-5.6.6/conf/sonar.properties',
-    line => 'sonar.embeddedDatabase.port:               9092',
+    path      => '/usr/local/sonarqube-5.6.6/conf/sonar.properties',
+    line      => 'sonar.embeddedDatabase.port:               9092',
+    subscribe => File['/usr/local/sonar/conf/sonar.properties'],
   }
 
 }
