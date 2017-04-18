@@ -24,17 +24,6 @@ class profile::inf::sonarqube (
     mode   => '0644',
     notify => Service['sonarqube'],
   }
-  remote_file { "${plugins_dir}/sslr-puppet-toolkit-1.3.jar":
-    ensure => present,
-    source => $puppet_toolkit_url,
-    notify => Service['sonarqube'],
-  }
-  file { "${plugins_dir}/sslr-puppet-toolkit-1.3.jar":
-    owner  => 'sonar',
-    group  => 'sonar',
-    mode   => '0644',
-    notify => Service['sonarqube'],
-  }
   firewall { '100 allow connections to sonarqube':
     proto  => 'tcp',
     dport  => '9000',
