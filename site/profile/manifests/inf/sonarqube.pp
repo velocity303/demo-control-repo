@@ -30,4 +30,9 @@ class profile::inf::sonarqube (
     action => 'accept',
   }
 
+  file_line { 'embedded port':
+    path => '/usr/local/sonarqube-5.6.6/conf/sonar.properties',
+    line => 'sonar.embeddedDatabase.port:               9092',
+  }
+
 }
