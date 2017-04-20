@@ -67,8 +67,9 @@ class profile::inf::icinga_server {
   contain ::icingaweb2::mod::monitoring
 
   package { ['php-pdo', 'php-pdo_mysql', 'php-pecl-imagick']:
-    ensure => present,
-    notify => [ Service['httpd'], Class['icingaweb2'] ],
+    ensure  => present,
+    notify  => [ Service['httpd'], Class['icingaweb2'] ],
+    require => Class['epel'],
   }
 
   package { 'nagios-plugins-all':
