@@ -60,13 +60,19 @@ class profile::inf::icinga_server {
     web_db_user         => 'icingaweb2',
     web_db_pass         => 'icinga2',
     web_db_port         => '3306',
-    require             => [ Class['epel'], Mysql::Db['icingaweb2'] ],
+    require             => [ Class['epel'], Mysql::Db['icingaweb2'], Class['icinga2'] ],
   }
 
   include ::icingaweb2::mod::monitoring
 
-  package { ['php-pdo', 'php-pdo_mysql', 'nagios-plugins-all']:
+  package { ['php-pdo', 'php-pdo_mysql']:
     ensure => present,
+    notify => Service['httpd'],
+  }
+
+  package { 'nagios-plugins-all':
+    ensure => present,
+    notify => Service['icinga2'],
   }
 
   firewall { '80 allow apache access':
