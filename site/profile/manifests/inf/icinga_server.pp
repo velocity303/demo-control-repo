@@ -63,7 +63,7 @@ class profile::inf::icinga_server {
     require             => [ Class['epel'], Mysql::Db['icingaweb2'], Anchor['icinga2::end'] ],
   }
 
-  Anchor['icinga2::end'] -> Package['icingaweb2']
+  Yumrepo['icinga-stable-release'] -> Package['icingaweb2']
   contain ::icingaweb2::mod::monitoring
 
   package { ['php-pdo', 'php-pdo_mysql']:
