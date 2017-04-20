@@ -60,7 +60,7 @@ class profile::inf::icinga_server {
     web_db_user         => 'icingaweb2',
     web_db_pass         => 'icinga2',
     web_db_port         => '3306',
-    require             => [ Class['epel'], Mysql::Db['icingaweb2'], Class['icinga2::repo''] ],
+    require             => [ Class['epel'], Mysql::Db['icingaweb2'], Class['icinga2::repo'] ],
   }
 
   Yumrepo['icinga-stable-release'] -> Package['icingaweb2']
