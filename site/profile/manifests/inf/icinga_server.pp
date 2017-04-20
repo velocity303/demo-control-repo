@@ -66,9 +66,9 @@ class profile::inf::icinga_server {
   Yumrepo['icinga-stable-release'] -> Package['icingaweb2']
   contain ::icingaweb2::mod::monitoring
 
-  package { ['php-pdo', 'php-pdo_mysql']:
+  package { ['php-pdo', 'php-pdo_mysql', 'php-pecl-imagick']:
     ensure => present,
-    notify => Service['httpd'],
+    notify => [ Service['httpd'], Class['icingaweb2'] ],
   }
 
   package { 'nagios-plugins-all':
@@ -90,7 +90,8 @@ class profile::inf::icinga_server {
   }
 
   package { 'nsca':
-    ensure => present,
+    ensure  => present,
+    require => Class['epel'],
     }->
     service { 'nsca':
       ensure => running,
