@@ -60,9 +60,10 @@ class profile::inf::icinga_server {
     web_db_user         => 'icingaweb2',
     web_db_pass         => 'icinga2',
     web_db_port         => '3306',
-    require             => [ Class['epel'], Mysql::Db['icingaweb2'], Yumrepo['icinga-stable-release'] ],
+    require             => [ Class['epel'], Mysql::Db['icingaweb2'], Class['icinga2'] ],
   }
 
+  Yumrepo['icinga-stable-release'] -> Package['icingaweb2']
   include ::icingaweb2::mod::monitoring
 
   package { ['php-pdo', 'php-pdo_mysql']:
