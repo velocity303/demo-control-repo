@@ -32,7 +32,6 @@ class profile::inf::icinga_server {
     user     => 'icingaweb2',
     password => 'icinga2',
     grant    => ['ALL'],
-    require  => Class['icingaweb2'],
   }
   ini_setting { 'date timezone setting':
     ensure  => present,
@@ -60,7 +59,7 @@ class profile::inf::icinga_server {
     web_db_user         => 'icingaweb2',
     web_db_pass         => 'icinga2',
     web_db_port         => '3306',
-    require             => Class['epel'],
+    require             => [ Class['epel'], Mysql::Db['icingaweb2'] ],
   }
 
   include ::icingaweb2::mod::monitoring
