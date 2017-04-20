@@ -1,4 +1,4 @@
-class profile::icinga_server {
+class profile::inf::icinga_server {
   include epel
   include apache
   include apache::mod::php
