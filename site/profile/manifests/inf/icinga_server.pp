@@ -12,6 +12,7 @@ class profile::inf::icinga_server {
   }
   class { '::icinga2':
     manage_repo => true,
+    features  => ['checker','mainlog','notification','statusdata','compatlog','command'],
   }
 
   class { '::icinga2::feature::idomysql':
