@@ -48,7 +48,7 @@ class profile::inf::icinga_server {
   include mysql::server
 
   class { 'icingaweb2':
-    manage_repo         => true,
+    manage_repo         => false,
     install_method      => 'package',
     manage_apache_vhost => true,
     ido_db              => 'mysql',
