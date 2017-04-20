@@ -4,9 +4,9 @@ class profile::inf::sonarqube (
   $plugins_dir = '/var/local/sonar/extensions/plugins',
 ) {
   java::oracle { 'jdk8' :
-      ensure      => 'present',
-        version   => '8',
-          java_se => 'jdk',
+    ensure  => 'present',
+    version => '8',
+    java_se => 'jdk',
   }
   include maven::maven
   class { 'sonarqube':

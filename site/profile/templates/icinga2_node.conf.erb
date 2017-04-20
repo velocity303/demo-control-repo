@@ -1,0 +1,45 @@
+// defines the Host as "<%= @fqdn %>" as residing at ip address "<%= @ipaddress %>"
+object Host "<%= @fqdn %>" {
+  import "generic-host"
+
+  address = "<%= @ipaddress %>"
+  check_command = "hostalive"
+
+  vars.lan = "<%= @domain %>"
+}
+
+// This services uses "check_nrpe" to connect to port 5666 of the targeted "<%= @fqdn %>" hosts and has it execute the "alias_cpu" alias
+object Service "load" {
+  import "generic-service"
+
+  host_name = "<%= @fqdn %>"
+  check_command = "check_nrpe"
+  vars.remote_check_nrpe_command = "alias_cpu"
+}
+
+// This services uses "check_nrpe" to connect to port 5666 of the targeted "<%= @fqdn %>" hosts and has it execute the "alias_disk" alias
+object Service "disk" {
+  import "generic-service"
+
+  host_name = "<%= @fqdn %>"
+  check_command = "check_nrpe"
+  vars.remote_check_nrpe_command = "alias_disk"
+}
+
+// This services uses "check_nrpe" to connect to port 5666 of the targeted "<%= @fqdn %>" hosts and has it execute the "alias_mem" alias
+object Service "memory" {
+  import "generic-service"
+
+  host_name = "<%= @fqdn %>"
+  check_command = "check_nrpe"
+  vars.remote_check_nrpe_command = "alias_mem"
+}
+
+// This services uses "check_nrpe" to connect to port 5666 of the targeted "<%= @fqdn %>" hosts and has it execute the "alias_updates" alias
+object Service "updates" {
+  import "generic-service"
+
+  host_name = "<%= @fqdn %>"
+  check_command = "check_nrpe"
+  vars.remote_check_nrpe_command = "alias_updates"
+}

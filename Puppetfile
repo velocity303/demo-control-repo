@@ -55,6 +55,7 @@ mod 'nanliu/staging'
 mod 'stahnma/epel'
 mod 'lwf/remote_file'
 mod 'puppet/archive'
+mod 'icinga/icinga2'
 mod 'jenkins',
   :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
   :ref => '1342f52be76206692e9b760f9437af35402e831e'
@@ -87,6 +88,8 @@ mod 'maestrodev/maven'
 mod 'maestrodev/archiva'
 mod 'maestrodev/sonarqube'
 mod 'crayfishx/hiera_http'
+mod 'icingaweb2',
+  :git => 'https://github.com/Icinga/puppet-icingaweb2.git'
 
 
 ###############################################################################
