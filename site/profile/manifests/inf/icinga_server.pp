@@ -65,6 +65,9 @@ class profile::inf::icinga_server {
 
   include ::icingaweb2::mod::monitoring
 
+  package { ['php-pdo', 'php-pdo_mysql', 'nagios-plugins-all']:
+    ensure => present,
+  }
 
   firewall { '80 allow apache access':
     dport  => [80],
