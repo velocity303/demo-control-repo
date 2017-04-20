@@ -32,7 +32,6 @@ class profile::inf::icinga_server {
     user     => 'icingaweb2',
     password => 'icinga2',
     grant    => ['ALL'],
-    sql      => '/usr/share/doc/icingaweb2/schema/mysql.schema.sql',
     require  => Class['icingaweb2'],
   }
   ini_setting { 'date timezone setting':
