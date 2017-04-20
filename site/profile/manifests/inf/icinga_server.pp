@@ -1,5 +1,5 @@
 class profile::inf::icinga_server {
-  include epel
+  contain epel
   include apache
   include apache::mod::php
   class { 'mysql::server':
@@ -44,7 +44,7 @@ class profile::inf::icinga_server {
     notify  => Service['httpd'],
   }
 
-  include mysql::server
+  contain mysql::server
 
   class { 'icingaweb2':
     manage_repo         => false,
@@ -60,11 +60,11 @@ class profile::inf::icinga_server {
     web_db_user         => 'icingaweb2',
     web_db_pass         => 'icinga2',
     web_db_port         => '3306',
-    require             => [ Class['epel'], Mysql::Db['icingaweb2'], Class['icinga2'] ],
+    require             => [ Class['epel'], Mysql::Db['icingaweb2'], Anchor['icinga2::end'] ],
   }
 
-  Yumrepo['icinga-stable-release'] -> Package['icingaweb2']
-  include ::icingaweb2::mod::monitoring
+  Anchor['icinga2::end'] -> Package['icingaweb2']
+  contain ::icingaweb2::mod::monitoring
 
   package { ['php-pdo', 'php-pdo_mysql']:
     ensure => present,
@@ -72,8 +72,9 @@ class profile::inf::icinga_server {
   }
 
   package { 'nagios-plugins-all':
-    ensure => present,
-    notify => Service['icinga2'],
+    ensure  => present,
+    notify  => Service['icinga2'],
+    require => Class['epel'],
   }
 
   firewall { '80 allow apache access':
