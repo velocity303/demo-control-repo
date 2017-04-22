@@ -1,5 +1,6 @@
 class profile::baseline {
   if $::kernel == 'Linux' {
+    include profile::baseline::epel
     include profile::baseline::motd
     contain profile::baseline::ssh
     include profile::baseline::packages
