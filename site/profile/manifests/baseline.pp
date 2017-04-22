@@ -1,4 +1,7 @@
 class profile::baseline {
+  File{
+    require => Host['puppet'],
+  }
   if $::kernel == 'Linux' {
     include profile::baseline::epel
     include profile::baseline::motd

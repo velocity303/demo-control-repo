@@ -2,6 +2,8 @@ class profile::inf::icinga_server {
   include profile::baseline::epel
   include apache
   include apache::mod::php
+  include apache::mod::prefork
+
   class { 'mysql::server':
     override_options   => {
       'mysqld'         => {
@@ -10,6 +12,7 @@ class profile::inf::icinga_server {
       },
     },
   }
+
   class { '::icinga2':
     manage_repo => true,
     features  => ['checker','mainlog','notification','statusdata','compatlog','command'],
@@ -93,18 +96,20 @@ class profile::inf::icinga_server {
   package { 'nsca':
     ensure  => present,
     require => Class['profile::baseline::epel'],
-    }->
-    service { 'nsca':
+  }->
+
+  service { 'nsca':
       ensure => running,
-    }
-    file { '/etc/nsca.cfg':
-      ensure => present,
-      source => 'puppet:///modules/profile/nsca.cfg',
-      notify => Service['nsca'],
-    }
-    file { '/etc/icinga2/conf.d/hosts':
-      ensure => directory,
-    }
+  }
+
+  file { '/etc/nsca.cfg':
+    ensure => present,
+    source => 'puppet:///modules/profile/nsca.cfg',
+    notify => Service['nsca'],
+  }
+  file { '/etc/icinga2/conf.d/hosts':
+    ensure => directory,
+  }
 
     file { '/root/.my.cnf':
       ensure => link,
