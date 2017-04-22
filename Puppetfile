@@ -63,6 +63,7 @@ mod 'jenkins',
 ###############################################################################
 # Other Forge Modules
 
+mod 'puppet/nsclient'
 mod 'croddy/make'
 mod 'jpadams/puppet_vim_env'
 mod 'camptocamp/accounts'
