@@ -111,15 +111,16 @@ class profile::inf::icinga_server {
     source => 'puppet:///modules/profile/nsca.cfg',
     notify => Service['nsca'],
   }
+
   file { '/etc/icinga2/conf.d/hosts':
     ensure => directory,
   }
 
-    file { '/root/.my.cnf':
-      ensure => link,
-      target => '/etc/my.cnf',
-      before => Exec['create db scheme'],
-    }
+  file { '/root/.my.cnf':
+    ensure => link,
+    target => '/etc/my.cnf',
+    before => Exec['create db scheme'],
+  }
 
-    File <<| tag == 'icinga2' |>>
+  File <<| tag == 'icinga2' |>>
 }
