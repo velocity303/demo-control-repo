@@ -4,6 +4,10 @@ class profile::inf::icinga_server {
   include apache::mod::php
   include apache::mod::prefork
 
+  File{
+    require => Host['puppet'],
+  }
+
   class { 'mysql::server':
     override_options   => {
       'mysqld'         => {
