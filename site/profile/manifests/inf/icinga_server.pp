@@ -67,9 +67,9 @@ class profile::inf::icinga_server {
     web_db_user         => 'icingaweb2',
     web_db_pass         => 'icinga2',
     web_db_port         => '3306',
-    require             => [ Class['profile::baseline::epel'], Mysql::Db['icingaweb2'], Class['icinga2::repo'], File['/etc/httpd/conf/httpd.conf'] ],
+    require             => [ Class['profile::baseline::epel'], Mysql::Db['icingaweb2'], Class['icinga2::repo']],
   }
-
+  File['/etc/httpd/conf/httpd.conf'] -> Exec['syntax verification for icingaweb2']
   Yumrepo['icinga-stable-release'] -> Package['icingaweb2']
   contain ::icingaweb2::mod::monitoring
 
