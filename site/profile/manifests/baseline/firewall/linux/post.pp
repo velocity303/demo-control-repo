@@ -1,4 +1,4 @@
-class profile::firewall::post {
+class profile::baseline::firewall::linux::post {
   firewall { '999 drop all':
     proto  => 'all',
     action => 'drop',
