@@ -1,4 +1,4 @@
-class profile::baseline::misc::vim {
+class profile::baseline::misc::linux::vim {
   require git
   case $osfamily {
     'RedHat': { $vim_pkg = 'vim-enhanced' }
