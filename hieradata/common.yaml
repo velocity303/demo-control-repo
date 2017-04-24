@@ -16,3 +16,12 @@ tse_sqlserver::mount::iso_source: http://192.168.0.164
 tse_sqlserver::admin_user: Administrator
 consul_node_ip: 192.168.1.15
 myapp-build-version: 1-4
+profile::baseline::banner::message: |
+  ===========================================================
+          Welcome to %{::hostname}
+  Access  to  and  use of this server is  restricted to those
+  activities expressly permitted by the system administration
+  staff. If you're not sure if it's allowed, then DON'T DO IT.
+  ===========================================================
+  The operating system is: %{::operatingsystem}
+            The domain is: %{::domain}

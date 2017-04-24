@@ -1,8 +1,13 @@
 class profile::baseline::banner {
+  $message,
   if $::kernel == 'Linux' {
-    include profile::baseline::banner::linux
+    class { 'profile::baseline::banner::linux':
+      message => $message,
+    }
   }
   elsif $::kernel == 'windows' {
-    include profile::baseline::banner::windows
+    class { 'profile::baseline::banner::windows':
+      message => $message,
+    }
   }
 }
