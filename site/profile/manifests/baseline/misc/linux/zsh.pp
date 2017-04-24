@@ -1,4 +1,4 @@
-class profile::baseline::zsh {
+class profile::baseline::misc::zsh {
   include ohmyzsh
   ohmyzsh::install { ['root', 'james']: }
   ohmyzsh::theme { ['root', 'james']: theme => clean }

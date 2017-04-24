@@ -1,5 +1,4 @@
 class profile::baseline::users::linux {
-  include profile::baseline::zsh
   class { 'accounts':
     ssh_keys       => hiera_hash('accounts::ssh_keys'),
     users          => hiera_hash('accounts::users'),
