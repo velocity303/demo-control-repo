@@ -1,4 +1,4 @@
-class profile::baseline::registry {
+class profile::baseline::misc::windows::registry {
 
   registry_key { 'HKEY_LOCAL_MACHINE\Software\Demonstration':
     ensure       => present,
