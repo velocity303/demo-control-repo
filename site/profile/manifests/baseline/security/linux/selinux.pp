@@ -1,4 +1,4 @@
-class profile::baseline::selinux {
+class profile::baseline::security::linux::selinux {
   include selinux
   reboot { 'after selinux is applied':
     subscribe => Class['selinux'],

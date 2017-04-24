@@ -1,4 +1,4 @@
-class profile::baseline::sudo {
+class profile::baseline::security::linux::sudo {
   include sudo
   group {'wheel':
     ensure => present,
