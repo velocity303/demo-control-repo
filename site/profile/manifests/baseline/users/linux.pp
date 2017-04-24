@@ -1,4 +1,25 @@
 class profile::baseline::users::linux {
+
+  $local_admin_pass = hiera('local_admin_pass')
+  $mysalt = hiera('my_password_salt')
+
+  if $::virtual == 'virtualbox' {
+    user { 'vagrant':
+      shell  => '/bin/bash',
+      ensure => present,
+      groups => ['ssh'],
+    }
+  }
+
+  user {'root':
+    shell    => '/usr/bin/zsh',
+    ensure   => 'present',
+    comment  => 'root',
+    home     => '/root',
+    password => pw_hash($local_admin_pass, 'SHA-512', $mysalt),
+    require  => Package['zsh'],
+  }
+
   class { 'accounts':
     ssh_keys       => hiera_hash('accounts::ssh_keys'),
     users          => hiera_hash('accounts::users'),
@@ -9,14 +30,7 @@ class profile::baseline::users::linux {
   accounts::account { hiera('usergroup'):
     authorized_keys => [ 'jameswork' ],
   }
-  user {'root':
-    shell    => '/usr/bin/zsh',
-    ensure   => 'present',
-    comment  => 'root',
-    home     => '/root',
-    password => '$6$70YVLQRK$PSiwOzkKBVO/RP13MukEM13YvyQjOPo8n5LX46rXoEJ7VVwGxH8cPnjLkbTJVExUbEJMrobGunO805JrgHZMs.',
-    require  => Package['zsh'],
-  }
+
   if $::virtual == 'virtualbox' {
     user { 'vagrant':
       shell  => '/bin/bash',
