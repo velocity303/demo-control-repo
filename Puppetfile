@@ -93,6 +93,7 @@ mod 'maestrodev/sonarqube'
 mod 'crayfishx/hiera_http'
 mod 'icingaweb2',
   :git => 'https://github.com/Icinga/puppet-icingaweb2.git'
+mod 'basti1302/windows_path'
 
 
 ###############################################################################
