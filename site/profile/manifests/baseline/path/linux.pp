@@ -1,4 +1,4 @@
-class profile::baseline::path {
+class profile::baseline::path::linux {
   file { '/etc/profile.d/path.sh':
     ensure  => file,
     content => '#!/bin/bash
