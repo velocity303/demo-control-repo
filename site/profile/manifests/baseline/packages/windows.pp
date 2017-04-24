@@ -1,4 +1,5 @@
 class profile::baseline::winpackages {
+  include chocolatey
   package { '7zip':
     ensure => present,
   }
