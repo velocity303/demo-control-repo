@@ -1,7 +1,7 @@
 class profile::baseline {
 
     include profile::baseline::hosts
-    #    include profile::baseline::users
+    include profile::baseline::users
     include profile::baseline::packages
     include profile::baseline::banner
     include profile::baseline::remote_access
