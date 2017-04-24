@@ -1,17 +1,8 @@
 class profile::baseline::hosts {
-  if $::trusted['extensions']['pp_role'] == 'puppetmaster' {
-    class  { '::hosts':
-      collect_all           => true,
-      purge_hosts           => true,
-      enable_ipv6_localhost => false,
-      fqdn_host_aliases     => [$::hostname, 'puppet'],
-    }
+  if $::kernel == 'Linux' {
+    include profile::baseline::hosts::linux
   }
-  else {
-    class  { '::hosts':
-      collect_all           => true,
-      purge_hosts           => true,
-      enable_ipv6_localhost => false,
-    }
+  elsif $::kernel == 'windows' {
+    include profile::baseline::hosts::windows
   }
 }

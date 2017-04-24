@@ -1,3 +1,8 @@
 class profile::baseline::packages {
-  ensure_packages(hiera_array('base_packages'), {'ensure' => 'present'})
+  if $::kernel == 'Linux' {
+    include profile::baseline::packages::linux
+  }
+  elsif $::kernel == 'windows' {
+    include profile::baseline::packages::windows
+  }
 }

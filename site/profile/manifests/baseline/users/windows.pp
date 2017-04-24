@@ -1,4 +1,4 @@
-class profile::baseline::winusers {
+class profile::baseline::users::windows{
   user { 'Administrator':
     ensure   => present,
     password => 'Password1',
