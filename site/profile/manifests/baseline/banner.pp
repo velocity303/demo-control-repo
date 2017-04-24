@@ -1,5 +1,6 @@
-class profile::baseline::banner {
+class profile::baseline::banner (
   $message,
+){
   if $::kernel == 'Linux' {
     class { 'profile::baseline::banner::linux':
       message => $message,
