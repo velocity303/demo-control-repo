@@ -1,4 +1,4 @@
-class profile::baseline::motd {
+class profile::baseline::banner::linux {
   class { '::motd':
     content => "
 ===========================================================
