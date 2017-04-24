@@ -1,3 +1,3 @@
-class profile::baseline::ntp {
+class profile::baseline::time::linux {
   include ::ntp
 }
