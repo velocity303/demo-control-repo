@@ -1,2 +1,2 @@
-class profile::baseline::firewall::linux::post {
+class profile::baseline::firewall::windows::post {
 }
