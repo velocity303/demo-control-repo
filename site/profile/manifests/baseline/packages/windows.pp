@@ -4,9 +4,6 @@ class profile::baseline::packages::windows {
   package { '7zip':
     ensure => present,
   }
-  package { 'jre8':
-    ensure => present,
-  }
   package {'notepadplusplus':
     ensure => present,
   }

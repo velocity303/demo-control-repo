@@ -60,6 +60,9 @@ mod 'icinga/icinga2'
 mod 'jenkins',
   :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
   :ref => '1342f52be76206692e9b760f9437af35402e831e'
+mod 'cyberious/windows_java', '1.0.2'
+mod 'puppet/windows_env', '2.3.0'
+mod 'cyberious-pget', '1.1.0'
 
 ###############################################################################
 # Other Forge Modules
