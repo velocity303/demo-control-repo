@@ -106,7 +106,7 @@ class profile::app::plsample (
 
     remote_file { "C:/apache-tomcat-${tomcat_version}.exe":
       ensure => present,
-      source => "http://master.inf.puppetlabs.demo/tomcat/apache-tomcat-${tomcat_version}.exe",
+      source => "http://apache.mirrors.pair.com/tomcat/tomcat-${tomcat_major_version}/v${tomcat_version}/bin/apache-tomcat-${tomcat_version}.exe",
       before => Package["Apache Tomcat ${tomcat_major_version}.0 Tomcat${tomcat_major_version} (remove only)"],
     }
 
