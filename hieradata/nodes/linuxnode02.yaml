@@ -1,0 +1,2 @@
+---
+profile::baseline::security::linux::rhel_svc_denied::http: true
