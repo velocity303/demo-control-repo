@@ -118,45 +118,7 @@ class profile::baseline::firewall::windows::pre {
     protocol         => '6',
     remote_ports     => '*',
   }
-  firewall_rule { 'Core Networking - IPHTTPS (TCP-In)':
-    ensure           => 'present',
-    application_name => 'System',
-    description      => 'Inbound TCP rule to allow IPHTTPS tunneling technology to provide connectivity across HTTP proxies and firewalls.',
-    enabled          => 'true',
-    grouping         => '@FirewallAPI.dll,-25000',
-    local_ports      => 'IPHTTPS',
-    protocol         => '6',
-    remote_ports     => '*',
-  }
-  firewall_rule { 'Core Networking - IPHTTPS (TCP-Out)':
-    ensure           => 'present',
-    application_name => 'C:\windows\system32\svchost.exe',
-    description      => 'Outbound TCP rule to allow IPHTTPS tunneling technology to provide connectivity across HTTP proxies and firewalls.',
-    direction        => '2',
-    enabled          => 'true',
-    grouping         => '@FirewallAPI.dll,-25000',
-    local_ports      => '*',
-    protocol         => '6',
-    remote_ports     => 'IPHTTPS',
-    service_name     => 'iphlpsvc',
-  }
-  firewall_rule { 'Core Networking - IPv6 (IPv6-In)':
-    ensure           => 'present',
-    application_name => 'System',
-    description      => 'Inbound rule required to permit IPv6 traffic for ISATAP (Intra-Site Automatic Tunnel Addressing Protocol) and 6to4 tunneling services.',
-    enabled          => 'true',
-    grouping         => '@FirewallAPI.dll,-25000',
-    protocol         => '41',
-  }
-  firewall_rule { 'Core Networking - IPv6 (IPv6-Out)':
-    ensure           => 'present',
-    application_name => 'System',
-    description      => 'Outbound rule required to permit IPv6 traffic for ISATAP (Intra-Site Automatic Tunnel Addressing Protocol) and 6to4 tunneling services.',
-    direction        => '2',
-    enabled          => 'true',
-    grouping         => '@FirewallAPI.dll,-25000',
-    protocol         => '41',
-  }
+
   firewall_rule { 'Core Networking - Internet Group Management Protocol (IGMP-In)':
     ensure           => 'present',
     application_name => 'System',
