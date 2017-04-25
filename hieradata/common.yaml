@@ -14,6 +14,7 @@ puppet_enterprise::profile::puppetdb::node_purge_ttl: "1s"
 puppet_enterprise::profile::console::display_local_time: true
 tse_sqlserver::mount::iso_source: http://192.168.1.14
 tse_sqlserver::admin_user: Administrator
+profile::db::sqlserver::iso_source: http://192.168.1.14
 consul_node_ip: 192.168.1.15
 myapp-build-version: 1-4
 profile::baseline::banner::message: |
