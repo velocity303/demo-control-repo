@@ -62,7 +62,7 @@ class profile::app::jenkins (
     }
 
     tomcat::setenv::entry {'JAVA_OPTS':
-      value => "-Djava.security.egd=file:/dev/./urandom",
+      value => '-Djava.security.egd=file:/dev/./urandom',
     }
 
     tomcat::war { "jenkins-${jenkins_version}.war" :
@@ -107,16 +107,16 @@ class profile::app::jenkins (
       source  => 'C:/jdk/jdk-8u45-windows-x64.exe',
     }
 
-    #    windows_firewall::exception { 'Tomcat':
-    #      ensure       => present,
-    #      direction    => 'in',
-    #      action       => 'Allow',
-    #      enabled      => 'yes',
-    #      protocol     => 'TCP',
-    #      local_port   => '8080',
-    #      display_name => 'Apache Tomcat Port',
-    #      description  => 'Inbound rule for Tomcat',
-    #    }
+  firewall_rule { 'Tomcat Inbound':
+    ensure       => 'present',
+    count        => '1',
+    description  => 'Inbound rule for Tomcat Server - Port 8080',
+    enabled      => true,
+    local_ports  => '8080',
+    protocol     => '6',
+    remote_ports => '*',
+  }
+
 
     remote_file { "C:/apache-tomcat-${tomcat_version}.exe":
       ensure => present,

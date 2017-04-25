@@ -44,10 +44,10 @@ class profile::app::plsample (
       catalina_base          => $catalina_dir,
       catalina_home          => $catalina_dir,
       before                 => Tomcat::War["plsample-${plsample_version}.war"],
-    }->
+    }
 
-    tomcat::setenv::entry {'JAVA_OPTS':
-      value => "-Djava.security.egd=file:/dev/./urandom",
+    -> tomcat::setenv::entry {'JAVA_OPTS':
+      value => '-Djava.security.egd=file:/dev/./urandom',
     }
 
     tomcat::war { "plsample-${plsample_version}.war" :
@@ -87,16 +87,15 @@ class profile::app::plsample (
 
     include windows_java
 
-    #    windows_firewall::exception { 'Tomcat':
-    #      ensure       => present,
-    #      direction    => 'in',
-    #      action       => 'Allow',
-    #      enabled      => 'yes',
-    #      protocol     => 'TCP',
-    #      local_port   => '8080',
-    #      display_name => 'Apache Tomcat Port',
-    #      description  => 'Inbound rule for Tomcat',
-    #    }
+  firewall_rule { 'Tomcat Inbound':
+    ensure       => 'present',
+    count        => '1',
+    description  => 'Inbound rule for Tomcat Server - Port 8080',
+    enabled      => true,
+    local_ports  => '8080',
+    protocol     => '6',
+    remote_ports => '*',
+  }
 
     remote_file { "C:/apache-tomcat-${tomcat_version}.exe":
       ensure => present,
