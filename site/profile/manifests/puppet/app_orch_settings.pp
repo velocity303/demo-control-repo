@@ -2,7 +2,7 @@ class profile::puppet::app_orch_settings (
   $setting = false,
 ){
   if $::kernel == 'windows' {
-    $config_file = 'C:\ProgramData\PuppetLabs\puppet\etc\puppet.conf'
+    $config_file = 'C:/ProgramData/PuppetLabs/puppet/etc/puppet.conf'
   }
   else {
     $config_file = '/etc/puppetlabs/puppet/puppet.conf'
