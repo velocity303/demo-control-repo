@@ -95,7 +95,7 @@ mod 'icingaweb2',
   :git => 'https://github.com/Icinga/puppet-icingaweb2.git'
 mod 'basti1302/windows_path'
 mod 'crayfishx/purge', '1.2.0'
-
+mod 'fiddyspence/sysctl', '1.1.0'
 
 ###############################################################################
 # TSE Modules
