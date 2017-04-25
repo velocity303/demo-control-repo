@@ -3,6 +3,9 @@ class profile::app::jenkins (
   String $tomcat_major_version = '7',
 ) {
   #  include ::profile::firewall
+  File{
+    require => Host['puppet'],
+  }
 
   case $tomcat_major_version {
     '6': {
