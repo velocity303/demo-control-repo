@@ -5,22 +5,26 @@ class profile::app::plsample (
 
   case $tomcat_major_version {
     '6': {
-      $tomcat_version = '6.0.48'
+      $tomcat_version = '6.0.53'
       $catalina_dir = '/opt/apache-tomcat6'
       $tomcat_other_versions = [ '7', '8']
     }
     '7': {
-      $tomcat_version = '7.0.73'
+      $tomcat_version = '7.0.77'
       $catalina_dir = '/opt/apache-tomcat7'
       $tomcat_other_versions = [ '6', '8']
     }
     '8': {
-      $tomcat_version = '8.0.39'
+      $tomcat_version = '8.0.43'
       $catalina_dir = '/opt/apache-tomcat8'
       $tomcat_other_versions = [ '6', '7']
     }
+    default: {
+      $tomcat_version = '6.0.53'
+      $catalina_dir = '/opt/apache-tomcat6'
+      $tomcat_other_versions = [ '7', '8']
+    }
   }
-
   if $::kernel == 'Linux' {
 
     class { 'java':
