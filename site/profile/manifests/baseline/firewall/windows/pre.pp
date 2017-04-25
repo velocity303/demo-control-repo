@@ -785,5 +785,5 @@ class profile::baseline::firewall::linux::pre {
     remote_addresses => 'LocalSubnet',
     remote_ports     => '*',
   }
-  # Allow remote management
+
 }
