@@ -86,16 +86,17 @@ class profile::app::generic_website {
         require => Apache::Vhost[$::fqdn],
         creates => "${doc_root}/index.html",
       }
-      consul::service { 'apache':
-        checks  => [
-          {
-            id       => 'generic_website',
-            http     => 'http://localhost:80',
-            interval => '10'
-          }
-        ],
-        port    => 80,
-      }
+
+      #      consul::service { 'apache':
+      #        checks  => [
+      #          {
+      #            id       => 'generic_website',
+      #            http     => 'http://localhost:80',
+      #            interval => '10'
+      #          }
+      #        ],
+      #        port    => 80,
+      #      }
 
       firewall { '100 allow https':
         proto  => 'tcp',
