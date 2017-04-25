@@ -107,16 +107,16 @@ class profile::app::jenkins (
       source  => 'C:/jdk/jdk-8u45-windows-x64.exe',
     }
 
-    windows_firewall::exception { 'Tomcat':
-      ensure       => present,
-      direction    => 'in',
-      action       => 'Allow',
-      enabled      => 'yes',
-      protocol     => 'TCP',
-      local_port   => '8080',
-      display_name => 'Apache Tomcat Port',
-      description  => 'Inbound rule for Tomcat',
-    }
+    #    windows_firewall::exception { 'Tomcat':
+    #      ensure       => present,
+    #      direction    => 'in',
+    #      action       => 'Allow',
+    #      enabled      => 'yes',
+    #      protocol     => 'TCP',
+    #      local_port   => '8080',
+    #      display_name => 'Apache Tomcat Port',
+    #      description  => 'Inbound rule for Tomcat',
+    #    }
 
     remote_file { "C:/apache-tomcat-${tomcat_version}.exe":
       ensure => present,

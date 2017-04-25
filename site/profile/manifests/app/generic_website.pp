@@ -37,16 +37,16 @@ class profile::app::generic_website {
       ],
     }
 
-    windows_firewall::exception { 'WINRM':
-      ensure       => present,
-      direction    => 'in',
-      action       => 'Allow',
-      enabled      => 'yes',
-      protocol     => 'TCP',
-      local_port   => '80',
-      display_name => 'HTTP Inbound',
-      description  => 'Inbound rule for HTTP Server - Port 80',
-    }
+    #    windows_firewall::exception { 'WINRM':
+    #      ensure       => present,
+    #      direction    => 'in',
+    #      action       => 'Allow',
+    #      enabled      => 'yes',
+    #      protocol     => 'TCP',
+    #      local_port   => '80',
+    #      display_name => 'HTTP Inbound',
+    #      description  => 'Inbound rule for HTTP Server - Port 80',
+    #    }
 
     staging::file { 'pl_generic_site.zip':
       source => 'puppet:///modules/profile/pl_generic_site.zip',

@@ -87,16 +87,16 @@ class profile::app::plsample (
 
     include windows_java
 
-    windows_firewall::exception { 'Tomcat':
-      ensure       => present,
-      direction    => 'in',
-      action       => 'Allow',
-      enabled      => 'yes',
-      protocol     => 'TCP',
-      local_port   => '8080',
-      display_name => 'Apache Tomcat Port',
-      description  => 'Inbound rule for Tomcat',
-    }
+    #    windows_firewall::exception { 'Tomcat':
+    #      ensure       => present,
+    #      direction    => 'in',
+    #      action       => 'Allow',
+    #      enabled      => 'yes',
+    #      protocol     => 'TCP',
+    #      local_port   => '8080',
+    #      display_name => 'Apache Tomcat Port',
+    #      description  => 'Inbound rule for Tomcat',
+    #    }
 
     remote_file { "C:/apache-tomcat-${tomcat_version}.exe":
       ensure => present,
