@@ -1,4 +1,4 @@
-class profile::baseline::firewall::linux::pre {
+class profile::baseline::firewall::windows::pre {
   Firewall_rule {
     require => undef,
   }
