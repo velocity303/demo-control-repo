@@ -104,11 +104,7 @@ class profile::app::jenkins (
   }
   elsif $::kernel == 'windows' {
 
-    windows_java::jdk { '8u45':
-      ensure  => present,
-      version => '8u45',
-      source  => 'C:/jdk/jdk-8u45-windows-x64.exe',
-    }
+    include windows_java
 
   firewall_rule { 'Tomcat Inbound':
     ensure       => 'present',
