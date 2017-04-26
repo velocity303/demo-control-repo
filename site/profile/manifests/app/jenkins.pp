@@ -136,7 +136,7 @@ class profile::app::jenkins (
       ensure          => present,
       source          => "C:/apache-tomcat-${tomcat_version}.exe",
       install_options => ['/S'],
-      require         => Windows_java::Jdk['8u45'],
+      require         => Class['windows_java'],
     }
 
     service { "tomcat${tomcat_major_version}":
