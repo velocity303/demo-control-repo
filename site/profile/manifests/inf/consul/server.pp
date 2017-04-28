@@ -9,7 +9,7 @@ class profile::inf::consul::server (
       config_hash => {
         'bootstrap_expect' => 3,
         'data_dir'         => '/opt/consul',
-        'datacenter'       => 'vagrant',
+        'datacenter'       => $::location,
         'log_level'        => 'INFO',
         'node_name'        => $::fqdn,
         'server'           => true,
@@ -25,7 +25,7 @@ class profile::inf::consul::server (
       config_hash => {
         'bootstrap_expect' => 3,
         'data_dir'         => '/opt/consul',
-        'datacenter'       => 'vagrant',
+        'datacenter'       => $::location,
         'log_level'        => 'INFO',
         'node_name'        => $::fqdn,
         'server'           => true,
