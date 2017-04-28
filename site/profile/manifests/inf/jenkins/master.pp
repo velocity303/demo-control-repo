@@ -1,7 +1,6 @@
 class profile::inf::jenkins::master {
   include git
   include profile::inf::jenkins::rpmbuild
-  include profile::inf::jenkins::puppet
 
   class { 'jenkins':
     version            => 'latest',
