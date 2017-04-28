@@ -1,6 +1,3 @@
 class profile::inf::jenkins::puppet {
-  package { 'puppet-lint':
-    ensure   => present,
-    provider => 'puppet_gem',
-  }
+  ensure_packages(['puppet-lint'], {'ensure' => 'present', 'provider' =>  'puppet_gem'})
 }
