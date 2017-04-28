@@ -30,6 +30,8 @@ class profile::inf::icinga_server {
     require       => Mysql::Db['icinga']
   }
 
+  include icinga2::feature::api
+
   mysql::db { 'icinga':
     user     => 'icinga',
     password => 'icinga',
