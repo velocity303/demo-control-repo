@@ -36,4 +36,11 @@ class profile::inf::sonarqube (
     subscribe => File['/usr/local/sonar/conf/sonar.properties'],
   }
 
+  firewall { '100 allow sonar traffic':
+    proto  => 'tcp',
+    dport  => '9000',
+    action => 'accept',
+  }
+
+
 }
