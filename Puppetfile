@@ -123,4 +123,4 @@ mod 'codeanalysis',
   :git => 'https://github.com/velocity303/puppet-codeanalysis.git'
 
 mod 'consul_cluster',
-	:git => 'https://github.com/velocity303/puppet-consul-app.git'
+  :git => 'https://github.com/velocity303/puppet-consul-app.git'
