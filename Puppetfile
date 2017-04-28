@@ -124,3 +124,5 @@ mod 'codeanalysis',
 
 mod 'consul_cluster',
   :git => 'https://github.com/velocity303/puppet-consul-app.git'
+
+mod 'puppetlabs/app_modeling'
