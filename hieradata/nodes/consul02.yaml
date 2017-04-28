@@ -1,3 +1,3 @@
 ---
-profile::inf::consul::server::consul_head_ip: 192.168.1.15
+profile::inf::consul::server::consul_head_ip: 192.168.1.33
 profile::inf::consul::server::master_host: false
