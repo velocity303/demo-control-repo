@@ -1,5 +1,5 @@
 # A profile to open up web traffic for both windows and linux
-class profile::firewall::web {
+class profile::baseline::firewall::linux::web {
     firewall { '100 allow https':
       proto  => 'tcp',
       dport  => '443',
