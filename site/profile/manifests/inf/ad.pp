@@ -33,7 +33,7 @@ class profile::inf::ad (
     notify                            => Reboot['dsc_reboot'],
   }
 
-  service { 'ADWS':
+  service { ['ADWS','NTDS','Netlogon','IsmServ','DFSR', 'kdc']:
     ensure  => 'running',
     require => Dsc_windowsfeature['ad-domain-services'],
   }
