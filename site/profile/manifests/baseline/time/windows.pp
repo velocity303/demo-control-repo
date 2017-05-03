@@ -3,8 +3,8 @@ class profile::baseline::time::windows {
   class { 'winntp':
     servers => lookup('ntp::servers'),
   }
-  dsc_xtimezone { 'set timezone':
-    dsc_timezone         => 'Central Standard Time',
-    dsc_issingleinstance => 'yes',
-  }
+  #  dsc_xtimezone { 'set timezone':
+  #  dsc_timezone         => 'Central Standard Time',
+  #  dsc_issingleinstance => 'yes',
+  #}
 }
