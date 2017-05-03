@@ -11,4 +11,15 @@ class profile::baseline::packages::windows {
     ensure => present,
   }
 
+  package { 'powershell':
+    ensure => latest,
+    provider => 'chocolatey',
+    install_options => ['-pre', '--ignore-package-exit-codes'],
+    notify => Reboot['afterpowershell'],
+  }
+
+  reboot { 'afterpowershell':
+    when => pending,
+  }
+
 }
