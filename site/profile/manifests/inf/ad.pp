@@ -33,6 +33,11 @@ class profile::inf::ad (
     notify                            => Reboot['dsc_reboot'],
   }
 
+  service { 'ADWS':
+    ensure  => 'running',
+    require => Dsc_windowsfeature['ad-domain-services'],
+  }
+
   dsc_xaddomaincontroller { 'lab':
     dsc_domainname                    => $domain_name,
     dsc_domainadministratorcredential =>  {
@@ -43,6 +48,7 @@ class profile::inf::ad (
       'user'     => 'Administrator',
       'password' => $domain_admin_pass
     },
-    notify                            => Reboot['dsc_reboot'],
+    require => Service['ADWS'],
+    notify  => Reboot['dsc_reboot'],
   }
 }
