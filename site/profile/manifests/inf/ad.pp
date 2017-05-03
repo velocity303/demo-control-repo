@@ -2,7 +2,7 @@
 class profile::inf::ad (
   $domain_name,
 ){
-  $domain_admin_pass = hiera('domain_admin_pass'),
+  $domain_admin_pass = hiera('domain_admin_pass')
   dsc_windowsfeature { 'rsat-adds':
     ensure => present,
     dsc_name => 'rsat-adds',
