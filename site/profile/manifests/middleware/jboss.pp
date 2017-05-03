@@ -15,9 +15,9 @@ class profile::middleware::jboss (
   }
 
   firewall { '100 allow connections to wildfly':
-    proto   => 'tcp',
-    dport   => '8080',
-    action  => 'accept',
+    proto  => 'tcp',
+    dport  => '8080',
+    action => 'accept',
   }
 
 }

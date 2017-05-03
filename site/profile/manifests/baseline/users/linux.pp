@@ -29,7 +29,7 @@ class profile::baseline::users::linux {
   }
   accounts::account { hiera('usergroup'):
     authorized_keys => [ 'jameswork' ],
-    require        => Package['zsh'],
+    require         => Package['zsh'],
   }
 
   if $::virtual == 'virtualbox' {

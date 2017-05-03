@@ -8,7 +8,7 @@ class profile::baseline::security::linux::rhel_svc_denied (
 
   # Passing the above array into a resource that will ensure all services are stopped and disabled.
   service { $disabled_services:
-    ensure  => 'stopped',
+    ensure => 'stopped',
     enable => false,
   }
 
@@ -16,21 +16,21 @@ class profile::baseline::security::linux::rhel_svc_denied (
   # need to be disabled
   unless $http {
     service { 'httpd':
-      ensure  => 'stopped',
+      ensure => 'stopped',
       enable => false,
     }
   }
 
   unless $nfs {
     service { 'nfslock':
-      ensure  => 'stopped',
+      ensure => 'stopped',
       enable => false,
     }
   }
 
   unless $smb {
     service { 'smb':
-      ensure  => 'stopped',
+      ensure => 'stopped',
       enable => false,
     }
   }

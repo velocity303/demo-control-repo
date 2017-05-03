@@ -71,7 +71,7 @@ class profile::db::sqlserver (
   sqlserver::config{ $db_instance:
     admin_user => 'sa',
     admin_pass => $sa_pass,
-    require  => Mount_iso[$iso_path],
+    require    => Mount_iso[$iso_path],
   }
 
   firewall_rule { 'MSSQL Access':
@@ -79,14 +79,14 @@ class profile::db::sqlserver (
     application_name => 'C:\Program Files\Microsoft SQL Server\MSSQL\Binn\sqlservr.exe',
     count            => '1',
     description      => 'MS SQL Server Inbound Access, enabled by Puppet in ',
-    enabled          => 'true',
+    enabled          => true,
   }
   firewall_rule { 'MSSQL Browser':
     ensure           => 'present',
     application_name => 'C:\Program Files (x86)\Microsoft SQL Server\90\Shared\sqlbrowser.exe',
     count            => '1',
     description      => 'MS SQL Server Browser Inbound Access, enabled by Puppet in ',
-    enabled          => 'true',
+    enabled          => true,
   }
 
 }

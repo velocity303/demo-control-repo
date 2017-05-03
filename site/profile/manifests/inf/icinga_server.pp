@@ -9,8 +9,8 @@ class profile::inf::icinga_server {
   }
 
   class { 'mysql::server':
-    override_options   => {
-      'mysqld'         => {
+    override_options => {
+      'mysqld' => {
         'bind-address' => '0.0.0.0',
         'port'         => 3306,
       },
@@ -19,7 +19,7 @@ class profile::inf::icinga_server {
 
   class { '::icinga2':
     manage_repo => true,
-    features  => ['checker','mainlog','notification','statusdata','compatlog','command'],
+    features    => ['checker','mainlog','notification','statusdata','compatlog','command'],
   }
 
   class { '::icinga2::feature::idomysql':

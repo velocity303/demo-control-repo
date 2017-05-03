@@ -4,7 +4,7 @@ class profile::baseline::time::windows {
     servers => lookup('ntp::servers'),
   }
   dsc_xtimezone { 'set timezone':
-    dsc_timezone => 'Central Standard Time',
+    dsc_timezone         => 'Central Standard Time',
     dsc_issingleinstance => 'yes',
   }
 }
