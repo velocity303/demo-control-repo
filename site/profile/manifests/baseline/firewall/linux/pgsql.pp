@@ -1,4 +1,4 @@
-class profile::baseline::firewall::pgsql {
+class profile::baseline::firewall::linux::pgsql {
 
   firewall { '100 allow external pgsql access':
     dport  => 5432,
