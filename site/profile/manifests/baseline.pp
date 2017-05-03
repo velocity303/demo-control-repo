@@ -9,7 +9,7 @@ class profile::baseline {
   include profile::baseline::packages
   include profile::baseline::banner
   include profile::baseline::remote_access
-  include profile::baseline::firewall
+  #  include profile::baseline::firewall
   include profile::baseline::security
   include profile::baseline::time
   include profile::baseline::path
