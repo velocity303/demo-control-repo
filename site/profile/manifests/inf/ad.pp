@@ -18,17 +18,17 @@ class profile::inf::ad (
     ensure   => present,
     dsc_name => 'ad-domain-services',
   } ->
-  
+
   dsc_xaddomain { $domain_name:
     ensure                            => present,
     dsc_domainname                    => $domain_name,
     dsc_domainadministratorcredential =>  {
-      'user'     => 'Administrator',
-      'password' => $domain_admin_pass,
+      user     => 'Administrator',
+      password => $domain_admin_pass,
     },
     dsc_safemodeadministratorpassword => {
-      'user'     => 'Administrator',
-      'password' => $domain_admin_pass,
+      user     => 'Administrator',
+      password => $domain_admin_pass,
     },
     notify                            => Reboot['dsc_reboot'],
   }
@@ -41,12 +41,12 @@ class profile::inf::ad (
   dsc_xaddomaincontroller { 'lab':
     dsc_domainname                    => $domain_name,
     dsc_domainadministratorcredential =>  {
-      'user'     => 'Administrator',
-      'password' => $domain_admin_pass
+      user     => 'Administrator',
+      password => $domain_admin_pass
     },
     dsc_safemodeadministratorpassword => {
-      'user'     => 'Administrator',
-      'password' => $domain_admin_pass
+      user     => 'Administrator',
+      password => $domain_admin_pass
     },
     require => Service['ADWS'],
     notify  => Reboot['dsc_reboot'],
