@@ -3,7 +3,12 @@ class profile::inf::ad (
   $domain_name,
 ){
 
-  reboot { 'dsc_reboot' :
+  reboot { 'dsc_reboot_1' :
+    message => 'DSC has requested a reboot',
+    apply   => 'immediately',
+  }
+
+  reboot { 'dsc_reboot_2' :
     message => 'DSC has requested a reboot',
     apply   => 'immediately',
   }
@@ -37,7 +42,7 @@ class profile::inf::ad (
     dsc_databasepath                  => 'c:\NTDS',
     dsc_logpath                       => 'c:\NTDS',
     dsc_sysvolpath                    => 'c:\SYSVOL',
-    notify                            => Reboot['dsc_reboot'],
+    notify                            => Reboot['dsc_reboot_1'],
     require                           => File['c:\NTDS','c:\SYSVOL'],
   } ->
 
@@ -59,6 +64,6 @@ class profile::inf::ad (
       password => $domain_admin_pass
     },
     require                           => Service['ADWS'],
-    notify                            => Reboot['dsc_reboot'],
+    notify                            => Reboot['dsc_reboot_2'],
   }
 }
