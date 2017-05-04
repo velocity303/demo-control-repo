@@ -21,9 +21,14 @@ class profile::inf::ad (
   dsc_windowsfeature { 'ad-domain-services':
     ensure   => present,
     dsc_name => 'ad-domain-services',
-  }
+  } ->
 
-  -> dsc_xaddomain { $domain_name:
+  service { ['ADWS','NTDS','Netlogon','IsmServ','DFSR', 'kdc']:
+    ensure  => 'running',
+    require => Dsc_windowsfeature['ad-domain-services'],
+  } ->
+
+  dsc_xaddomain { $domain_name:
     ensure                            => present,
     dsc_domainname                    => $domain_name,
     dsc_domainadministratorcredential =>  {
@@ -41,10 +46,6 @@ class profile::inf::ad (
     require                           => File['c:\NTDS','c:\SYSVOL'],
   }
 
-  service { ['ADWS','NTDS','Netlogon','IsmServ','DFSR', 'kdc']:
-    ensure  => 'running',
-    require => Dsc_windowsfeature['ad-domain-services'],
-  }
 
   dsc_xaddomaincontroller { 'lab':
     dsc_domainname                    => $domain_name,
