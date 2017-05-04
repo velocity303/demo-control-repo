@@ -25,7 +25,7 @@ class profile::inf::ad (
 
   service { ['ADWS','NTDS','Netlogon','IsmServ','DFSR', 'kdc']:
     ensure  => 'running',
-    enabled => 'Automatic',
+    enable  => 'Automatic',
     require => Dsc_windowsfeature['ad-domain-services'],
   } ->
 
