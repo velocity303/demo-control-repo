@@ -27,11 +27,11 @@ class profile::inf::ad (
     ensure                            => present,
     dsc_domainname                    => $domain_name,
     dsc_domainadministratorcredential =>  {
-      user     => 'Administrator',
+      user     => 'Administrator1',
       password => $domain_admin_pass,
     },
     dsc_safemodeadministratorpassword => {
-      user     => 'Administrator',
+      user     => 'Administrator1',
       password => $domain_admin_pass,
     },
     dsc_databasepath                  => 'c:\NTDS',
@@ -51,11 +51,11 @@ class profile::inf::ad (
   dsc_xaddomaincontroller { 'portland.lab':
     dsc_domainname                    => $domain_name,
     dsc_domainadministratorcredential =>  {
-      user     => 'Administrator',
+      user     => 'Administrator1',
       password => $domain_admin_pass
     },
     dsc_safemodeadministratorpassword => {
-      user     => 'Administrator',
+      user     => 'Administrator1',
       password => $domain_admin_pass
     },
     require                           => Service['ADWS'],
