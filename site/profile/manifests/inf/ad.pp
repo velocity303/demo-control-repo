@@ -5,7 +5,11 @@ class profile::inf::ad (
 
   reboot { 'dsc_reboot' :
     message => 'DSC has requested a reboot',
-    apply => 'immediately',
+    apply   => 'immediately',
+  }
+
+  file { ['c:\NTDS','c:\SYSVOL']:
+    ensure => directory,
   }
 
   $domain_admin_pass = hiera('domain_admin_pass')
@@ -17,9 +21,9 @@ class profile::inf::ad (
   dsc_windowsfeature { 'ad-domain-services':
     ensure   => present,
     dsc_name => 'ad-domain-services',
-  } ->
+  }
 
-  dsc_xaddomain { $domain_name:
+  -> dsc_xaddomain { $domain_name:
     ensure                            => present,
     dsc_domainname                    => $domain_name,
     dsc_domainadministratorcredential =>  {
@@ -30,7 +34,11 @@ class profile::inf::ad (
       user     => 'Administrator',
       password => $domain_admin_pass,
     },
+    dsc_databasepath                  => 'c:\NTDS',
+    dsc_logpath                       => 'c:\NTDS',
+    dsc_sysvolpath                    => 'c:\SYSVOL',
     notify                            => Reboot['dsc_reboot'],
+    require                           => File['c:\NTDS','c:\SYSVOL'],
   }
 
   service { ['ADWS','NTDS','Netlogon','IsmServ','DFSR', 'kdc']:
@@ -48,7 +56,7 @@ class profile::inf::ad (
       user     => 'Administrator',
       password => $domain_admin_pass
     },
-    require => Service['ADWS'],
-    notify  => Reboot['dsc_reboot'],
+    require                           => Service['ADWS'],
+    notify                            => Reboot['dsc_reboot'],
   }
 }
