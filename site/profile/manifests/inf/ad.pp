@@ -48,7 +48,7 @@ class profile::inf::ad (
   }
 
 
-  dsc_xaddomaincontroller { 'lab':
+  dsc_xaddomaincontroller { 'portland.lab':
     dsc_domainname                    => $domain_name,
     dsc_domainadministratorcredential =>  {
       user     => 'Administrator',
