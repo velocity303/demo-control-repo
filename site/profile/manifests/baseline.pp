@@ -17,5 +17,6 @@ class profile::baseline {
   include profile::baseline::monitoring
   include profile::baseline::misc
   include puppet_enterprise::profile::agent
+  include puppet_agent
 
 }
