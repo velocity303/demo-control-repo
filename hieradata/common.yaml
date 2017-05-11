@@ -50,3 +50,4 @@ accounts::usergroups:
   base:
     - james
 puppet_enterprise::profile::agent::package_inventory_enabled: true
+puppet_agent::package_version: 1.8.2
