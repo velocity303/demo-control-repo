@@ -1,2 +1,3 @@
 ---
 profile::baseline::security::linux::rhel_svc_denied::nfs: true
+profile::baseline::security::linux::rhel_svc_denied::http: true
