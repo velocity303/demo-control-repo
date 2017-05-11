@@ -49,3 +49,4 @@ accounts::ssh_keys:
 accounts::usergroups:
   base:
     - james
+puppet_enterprise::profile::agent::package_inventory_enabled: true
