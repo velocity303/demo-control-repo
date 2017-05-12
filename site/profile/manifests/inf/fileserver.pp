@@ -1,7 +1,8 @@
 class profile::inf::fileserver {
   include 'stdlib'
   include 'apache'
-  include profile::inf::nfsserver
+ include profile::baseline::security::linux::selinux
+ include profile::inf::nfsserver
   ensure_resource('file', '/opt/fileserver', { 'ensure' => 'directory', 'owner' => 'apache', 'group' => 'apache'})
 
   apache::vhost { 'fileserver':
