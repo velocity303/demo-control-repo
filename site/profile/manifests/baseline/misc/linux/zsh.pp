@@ -1,7 +1,7 @@
 class profile::baseline::misc::linux::zsh {
   include ohmyzsh
   ohmyzsh::install { ['root', 'james']: }
-  ohmyzsh::theme { ['root', 'james']: theme => clean }
+  ohmyzsh::theme { ['root', 'james']: theme => bureau }
   ohmyzsh::plugins { ['root', 'james']: plugins => 'git github' }
   contain git
   Class['git'] -> Class['ohmyzsh']
