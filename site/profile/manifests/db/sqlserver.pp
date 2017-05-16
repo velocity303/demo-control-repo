@@ -6,7 +6,7 @@ class profile::db::sqlserver (
   $db_instance = 'MYINSTANCE',
   $sa_pass = 'Password$123$',
   $iso = 'SQLServer2014-x64-ENU.iso',
-  $iso_source = 'https://s3-us-west-2.amazonaws.com/tseteam/files/tse_sqlserver',
+  $iso_source = 'http://fileserver.infrastructure.lab',
   $iso_drive = 'F',
 ) {
   reboot { 'before install':
