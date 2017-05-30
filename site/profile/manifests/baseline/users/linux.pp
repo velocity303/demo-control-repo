@@ -32,11 +32,4 @@ class profile::baseline::users::linux {
     require         => Package['zsh'],
   }
 
-  if $::virtual == 'virtualbox' {
-    user { 'vagrant':
-      shell  => '/bin/bash',
-      ensure => present,
-      groups => ['ssh'],
-    }
-  }
 }
