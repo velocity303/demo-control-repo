@@ -30,6 +30,8 @@ mod 'puppetlabs/sqlserver'
 mod 'puppetlabs/mount_iso'
 mod 'puppetlabs/dsc'
 mod 'puppetlabs/puppet_agent'
+mod 'puppetlabs/ibm_installation_manager'
+mod 'puppetlabs/websphere_application_server'
 
 
 ###############################################################################
