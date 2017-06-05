@@ -18,12 +18,5 @@ class profile::middleware::websphere::setup {
     manage_group => true,
   }
 
-  websphere_application_server::instance { 'WebSphere85':
-    target       => '/opt/IBM/WebSphere/AppServer',
-    package      => 'com.ibm.websphere.BASETRIAL.v85',
-    version      => '8.5.5000.20130514_1044',
-    profile_base => '/opt/IBM/WebSphere/AppServer/profiles',
-    repository   => '/opt/ibm_files/was.repo.8550.basetrial/repository.config',
-  }
 
 }

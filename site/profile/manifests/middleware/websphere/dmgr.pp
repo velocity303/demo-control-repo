@@ -3,18 +3,18 @@ class profile::middleware::websphere::dmgr(
   $cell_name     = 'CELL_01',
   $cluster_name  = 'MyCluster01',
   $instance_name = 'WebSphere85',
-  $repository    = '/vagrant/ibm/was.repo.8550.ndtrial/repository.config',
-  $package       = 'com.ibm.websphere.NDTRIAL.v85',
+  $repository    = '/opt/ibm_files/was.repo.8550.basetrial/repository.config',
+  $package       = 'com.ibm.websphere.BASETRIAL.v85',
   $version       = '8.5.5000.20130514_1044',
   $target        = '/opt/IBM/WebSphere/AppServer',
   $profile_base  = '/opt/IBM/WebSphere/AppServer/profiles',
-  $user          = 'websphere',
-  $wsadmin_user  = 'httpadmin',
-  $wsadmin_pass  = 'password',
+  $user          = 'webadmin',
+  $wsadmin_user  = 'webadmin',
+  $wsadmin_pass  = 'puppetlabs',
 ){
   contain 'profile::middleware::websphere::ibm_im'
 
-  websphere::instance { $instance_name:
+  websphere_application_server::instance { $instance_name:
     target       => $target,
     package      => $package,
     version      => $version,
@@ -22,7 +22,7 @@ class profile::middleware::websphere::dmgr(
     repository   => $repository,
   } ->
 
-  websphere::profile::dmgr { $profile_name:
+  websphere_application_server::profile::dmgr { $profile_name:
     instance_base    => $target,
     profile_base     => $profile_base,
     cell             => $cell_name,
@@ -31,11 +31,6 @@ class profile::middleware::websphere::dmgr(
     wsadmin_user     => $wsadmin_user,
     wsadmin_pass     => $wsadmin_pass,
     collect_jvm_logs => false,
-  } ->
-
-  websphere::cluster { $cluster_name:
-    profile_base => $profile_base,
-    dmgr_profile => $profile_name,
-    cell         => $cell_name
   }
+
 }

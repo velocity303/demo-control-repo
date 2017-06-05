@@ -1,13 +1,13 @@
 class profile::middleware::websphere::appserver(
-  $dmgr_host     = 'centos6a.pdx.puppet.vm',
+  $dmgr_host     = $::fqdn,
   $dmgr_profile  = 'PROFILE_DMGR_01',
   $app_profile   = 'PROFILE_APP_001',
   $cell_name     = 'CELL_01',
   $member_name   = "${::hostname}_appserver",
   $cluster_name  = 'MyCluster01',
   $instance_name = 'WebSphere85',
-  $repository    = '/vagrant/ibm/was.repo.8550.ndtrial/repository.config',
-  $package       = 'com.ibm.websphere.NDTRIAL.v85',
+  $repository    = '/opt/ibm/was.repo.8550.basetrial/repository.config',
+  $package       = 'com.ibm.websphere.BASETRIAL.v85',
   $version       = '8.5.5000.20130514_1044',
   $target        = '/opt/IBM/WebSphere/AppServer',
   $profile_base  = '/opt/IBM/WebSphere/AppServer/profiles',
@@ -15,7 +15,7 @@ class profile::middleware::websphere::appserver(
 ){
   contain 'profile::middleware::websphere::ibm_im'
 
-  websphere::instance { $instance_name:
+  websphere_application_server::instance { $instance_name:
     target       => $target,
     package      => $package,
     version      => $version,
@@ -23,7 +23,7 @@ class profile::middleware::websphere::appserver(
     repository   => $repository,
   } ->
 
-  websphere::profile::appserver { $app_profile:
+  websphere_application_server::profile::appserver { $app_profile:
     instance_base => $target,
     profile_base  => $profile_base,
     cell          => $cell_name,
@@ -32,13 +32,4 @@ class profile::middleware::websphere::appserver(
     node_name     => $::fqdn,
   }
 
-  @@websphere::cluster::member { $member_name:
-    ensure                           => 'present',
-    cluster                          => $cluster_name,
-    node                             => $::fqdn,
-    cell                             => $cell_name,
-    dmgr_host                        => $dmgr_host,
-    dmgr_profile                     => $dmgr_profile,
-    profile_base                     => $profile_base,
-  }
 }
