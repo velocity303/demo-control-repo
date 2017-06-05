@@ -1,5 +1,6 @@
 class profile::middleware::websphere::setup {
-
+  include profile::middleware::websphere::ibm_im
+  
   file { '/opt/ibm_files':
     ensure => directory,
   }->
