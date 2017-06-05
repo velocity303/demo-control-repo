@@ -23,6 +23,17 @@ class profile::middleware::websphere::appserver(
     repository   => $repository,
   } ->
 
+  websphere_application_server::profile::dmgr { $profile_name:
+    instance_base    => $target,
+    profile_base     => $profile_base,
+    cell             => $cell_name,
+    node_name        => $::fqdn,
+    user             => $user,
+    wsadmin_user     => $wsadmin_user,
+    wsadmin_pass     => $wsadmin_pass,
+    collect_jvm_logs => false,
+  } ->
+
   websphere_application_server::profile::appserver { $app_profile:
     instance_base => $target,
     profile_base  => $profile_base,
