@@ -6,12 +6,12 @@ class profile::middleware::websphere::appserver(
   $member_name   = "${::hostname}_appserver",
   $cluster_name  = 'MyCluster01',
   $instance_name = 'WebSphere85',
-  $repository    = '/opt/ibm_files/was.repo.8550.basetrial/repository.config',
-  $package       = 'com.ibm.websphere.BASETRIAL.v85',
+  $repository    = '/opt/ibm_files/was.repo.8550.ndtrial/repository.config',
+  $package       = 'com.ibm.websphere.NDTRIAL.v85',
   $version       = '8.5.5000.20130514_1044',
   $target        = '/opt/IBM/WebSphere/AppServer',
   $profile_base  = '/opt/IBM/WebSphere/AppServer/profiles',
-  $template_path = '/opt/IBM/WebSphere/AppServer/profileTemplates/management',
+  $template_path = '/opt/IBM/WebSphere/AppServer/profileTemplates/manager',
 ){
   contain 'profile::middleware::websphere::ibm_im'
 
@@ -26,14 +26,12 @@ class profile::middleware::websphere::appserver(
   websphere_application_server::profile::dmgr { $dmgr_profile:
     instance_base    => $target,
     profile_base     => $profile_base,
-    template_path    => $template_path,
     cell             => $cell_name,
     node_name        => $::fqdn,
     user             => $user,
     wsadmin_user     => $wsadmin_user,
     wsadmin_pass     => $wsadmin_pass,
     collect_jvm_logs => false,
-    options          => "-create -profileName ${dmgr_profile} -profilePath ${profile_base}/${dmgr_profile} -templatePath ${_template_path} -nodeName ${node_name} -hostName ${::fqdn} -federateLater true -cellName standalone -servertype DEPLOYMENT_MANAGER"
   } ->
 
   websphere_application_server::profile::appserver { $app_profile:
