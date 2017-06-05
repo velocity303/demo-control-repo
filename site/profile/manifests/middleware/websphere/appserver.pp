@@ -11,7 +11,7 @@ class profile::middleware::websphere::appserver(
   $version       = '8.5.5000.20130514_1044',
   $target        = '/opt/IBM/WebSphere/AppServer',
   $profile_base  = '/opt/IBM/WebSphere/AppServer/profiles',
-  $template_path = '/opt/IBM/WebSphere/AppServer/profileTemplates/manager',
+  $template_path = '/opt/IBM/WebSphere/AppServer/profileTemplates/managed',
 ){
   contain 'profile::middleware::websphere::ibm_im'
 
@@ -38,7 +38,7 @@ class profile::middleware::websphere::appserver(
     instance_base => $target,
     profile_base  => $profile_base,
     cell          => $cell_name,
-    #    template_path => $template_path,
+    template_path => $template_path,
     dmgr_host     => $dmgr_host,
     node_name     => $::fqdn,
   }
