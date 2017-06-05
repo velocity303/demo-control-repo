@@ -52,7 +52,7 @@ class profile::middleware::websphere::appserver(
   @@websphere_application_server::cluster::member { $member_name:
     ensure                           => 'present',
     cluster                          => $cluster_name,
-    node                             => $::fqdn,
+    node_name                        => $::fqdn,
     cell                             => $cell_name,
     dmgr_host                        => $dmgr_host,
     dmgr_profile                     => $dmgr_profile,
