@@ -23,7 +23,7 @@ class profile::middleware::websphere::appserver(
     repository   => $repository,
   } ->
 
-  websphere_application_server::profile::dmgr { $profile_name:
+  websphere_application_server::profile::dmgr { $dmgr_profile:
     instance_base    => $target,
     profile_base     => $profile_base,
     cell             => $cell_name,
