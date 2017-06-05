@@ -45,7 +45,7 @@ class profile::middleware::websphere::appserver(
 
   websphere_application_server::cluster { $cluster_name:
     profile_base => $profile_base,
-    dmgr_profile => $profile_name,
+    dmgr_profile => $dmgr_profile,
     cell         => $cell_name,
   }
 
