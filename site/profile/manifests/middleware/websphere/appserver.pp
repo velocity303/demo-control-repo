@@ -6,7 +6,7 @@ class profile::middleware::websphere::appserver(
   $member_name   = "${::hostname}_appserver",
   $cluster_name  = 'MyCluster01',
   $instance_name = 'WebSphere85',
-  $repository    = '/opt/ibm/was.repo.8550.basetrial/repository.config',
+  $repository    = '/opt/ibm_files/was.repo.8550.basetrial/repository.config',
   $package       = 'com.ibm.websphere.BASETRIAL.v85',
   $version       = '8.5.5000.20130514_1044',
   $target        = '/opt/IBM/WebSphere/AppServer',
