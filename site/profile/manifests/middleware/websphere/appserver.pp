@@ -33,6 +33,7 @@ class profile::middleware::websphere::appserver(
     wsadmin_user     => $wsadmin_user,
     wsadmin_pass     => $wsadmin_pass,
     collect_jvm_logs => false,
+    options          => "-create -profileName ${profile_name} -profilePath ${profile_base}/${profile_name} -templatePath ${_template_path} -nodeName ${node_name} -hostName ${::fqdn} -federateLater true -cellName standalone -servertype DEPLOYMENT_MANAGER"
   } ->
 
   websphere_application_server::profile::appserver { $app_profile:
