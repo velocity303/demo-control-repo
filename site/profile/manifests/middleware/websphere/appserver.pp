@@ -40,7 +40,7 @@ class profile::middleware::websphere::appserver(
     cell          => $cell_name,
     template_path => $template_path,
     dmgr_host     => $dmgr_host,
-    node_name     => $::fqdn,
+    node_name     => 'app01',
   }
 
 }
