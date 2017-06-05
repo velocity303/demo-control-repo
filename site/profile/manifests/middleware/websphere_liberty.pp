@@ -1,4 +1,4 @@
-class profile::middleware::websphere (
+class profile::middleware::websphere_liberty (
   $app_name = 'sample-1.2',
   $port     = '9080',
 ){
