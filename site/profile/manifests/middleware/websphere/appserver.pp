@@ -27,7 +27,7 @@ class profile::middleware::websphere::appserver(
     instance_base    => $target,
     profile_base     => $profile_base,
     cell             => $cell_name,
-    node_name        => $::fqdn,
+    node_name        => 'dmgrNode01',
     user             => $user,
     wsadmin_user     => $wsadmin_user,
     wsadmin_pass     => $wsadmin_pass,
