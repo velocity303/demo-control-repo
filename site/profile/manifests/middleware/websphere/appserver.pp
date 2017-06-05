@@ -38,7 +38,7 @@ class profile::middleware::websphere::appserver(
     instance_base => $target,
     profile_base  => $profile_base,
     cell          => $cell_name,
-    template_path => $template_path,
+    #    template_path => $template_path,
     dmgr_host     => $dmgr_host,
     node_name     => $::fqdn,
   }
