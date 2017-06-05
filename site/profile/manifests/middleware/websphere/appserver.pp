@@ -43,7 +43,13 @@ class profile::middleware::websphere::appserver(
     node_name     => 'app01',
   }
 
-  @@websphere::cluster::member { $member_name:
+  websphere_application_server::cluster { $cluster_name:
+    profile_base => $profile_base,
+    dmgr_profile => $profile_name,
+    cell         => $cell_name,
+  }
+
+  @@websphere_application_server::cluster::member { $member_name:
     ensure                           => 'present',
     cluster                          => $cluster_name,
     node                             => $::fqdn,
