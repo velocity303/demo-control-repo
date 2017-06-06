@@ -24,7 +24,7 @@ class profile::middleware::websphere::dmgr(
     require      => Staging::Deploy['websphere_bundle.tar.gz']
   } ->
 
-  websphere_application_server::profile::dmgr { $dmgr_profile:
+  websphere_application_server::profile::dmgr { $profile_name:
     instance_base    => $target,
     profile_base     => $profile_base,
     cell             => $cell_name,
