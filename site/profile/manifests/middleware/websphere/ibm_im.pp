@@ -16,6 +16,7 @@ class profile::middleware::websphere::ibm_im (
     deploy_source => true,
     source        => $source,
     target        => $target,
+    require      => Staging::Deploy['websphere_bundle.tar.gz']
   }
 
 }
