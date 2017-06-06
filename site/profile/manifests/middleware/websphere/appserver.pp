@@ -2,6 +2,7 @@ class profile::middleware::websphere::appserver(
   $dmgr_host     = $::fqdn,
   $dmgr_profile  = 'PROFILE_DMGR_01',
   $app_profile   = 'PROFILE_APP_001',
+  $app_node      = $hostname,
   $cell_name     = 'CELL_01',
   $member_name   = "${::hostname}_appserver",
   $cluster_name  = 'MyCluster01',
@@ -14,6 +15,7 @@ class profile::middleware::websphere::appserver(
   $template_path = '/opt/IBM/WebSphere/AppServer/profileTemplates/managed',
 ){
   contain 'profile::middleware::websphere::ibm_im'
+  include profile::middleware::websphere::setup
 
   websphere_application_server::instance { $instance_name:
     target       => $target,
@@ -21,18 +23,9 @@ class profile::middleware::websphere::appserver(
     version      => $version,
     profile_base => $profile_base,
     repository   => $repository,
+    require      => Staging::Deploy['websphere_bundle.tar.gz']
   } ->
 
-  websphere_application_server::profile::dmgr { $dmgr_profile:
-    instance_base    => $target,
-    profile_base     => $profile_base,
-    cell             => $cell_name,
-    node_name        => 'dmgrNode01',
-    user             => $user,
-    wsadmin_user     => $wsadmin_user,
-    wsadmin_pass     => $wsadmin_pass,
-    collect_jvm_logs => false,
-  } ->
 
   websphere_application_server::profile::appserver { $app_profile:
     instance_base => $target,
@@ -40,22 +33,18 @@ class profile::middleware::websphere::appserver(
     cell          => $cell_name,
     template_path => $template_path,
     dmgr_host     => $dmgr_host,
-    node_name     => 'app01',
+    node_name     => $app_node,
   }
 
-  websphere_application_server::cluster { $cluster_name:
-    profile_base => $profile_base,
-    dmgr_profile => $dmgr_profile,
-    cell         => $cell_name,
-  }
 
   @@websphere_application_server::cluster::member { $member_name:
     ensure                           => 'present',
     cluster                          => $cluster_name,
-    node_name                        => 'app01',
+    node_name                        => $app_node,
     cell                             => $cell_name,
     dmgr_host                        => $dmgr_host,
     dmgr_profile                     => $dmgr_profile,
     profile_base                     => $profile_base,
   }
+
 }
