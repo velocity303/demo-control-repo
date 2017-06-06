@@ -1,5 +1,5 @@
 class profile::middleware::websphere::appserver(
-  $dmgr_host     = 'websphere01.chicago.lab'
+  $dmgr_host     = 'websphere01.chicago.lab',
   $dmgr_profile  = 'PROFILE_DMGR_01',
   $app_profile   = 'PROFILE_APP_001',
   $app_node      = $hostname,
