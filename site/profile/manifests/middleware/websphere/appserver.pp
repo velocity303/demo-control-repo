@@ -16,6 +16,7 @@ class profile::middleware::websphere::appserver(
 ){
   contain 'profile::middleware::websphere::ibm_im'
   include profile::middleware::websphere::setup
+  include profile::middleware::websphere::firewall
 
   websphere_application_server::instance { $instance_name:
     target       => $target,

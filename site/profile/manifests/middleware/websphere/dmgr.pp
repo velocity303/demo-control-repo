@@ -14,6 +14,7 @@ class profile::middleware::websphere::dmgr(
 ){
   contain 'profile::middleware::websphere::ibm_im'
   include profile::middleware::websphere::setup
+  include profile::middleware::websphere::firewall
 
   websphere_application_server::instance { $instance_name:
     target       => $target,
@@ -39,6 +40,7 @@ class profile::middleware::websphere::dmgr(
     profile_base => $profile_base,
     dmgr_profile => $profile_name,
     cell         => $cell_name,
+    require      => Websphere_application_server::Profile::Dmgr['PROFILE_DMGR_01'],
   }
 
 }
