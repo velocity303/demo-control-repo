@@ -5,15 +5,15 @@ class profile::baseline::users::linux {
 
   if $::virtual == 'virtualbox' {
     user { 'vagrant':
-      shell  => '/bin/bash',
       ensure => present,
+      shell  => '/bin/bash',
       groups => ['ssh'],
     }
   }
 
   user {'root':
-    shell    => '/usr/bin/zsh',
     ensure   => 'present',
+    shell    => '/usr/bin/zsh',
     comment  => 'root',
     home     => '/root',
     password => pw_hash($local_admin_pass, 'SHA-512', $mysalt),

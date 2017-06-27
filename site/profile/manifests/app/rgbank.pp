@@ -38,22 +38,22 @@ class profile::app::rgbank (
     password => $db_pass,
     host     => '%',
     sql      => "/var/tmp/${db_name}/rgbank.sql",
-  } ->
+  }
 
-  mysql_user { "${db_user}@localhost":
+  -> mysql_user { "${db_user}@localhost":
     ensure        => 'present',
     password_hash => mysql_password($db_pass),
-  } ->
+  }
 
-  apache::vhost { $::fqdn:
+  -> apache::vhost { $::fqdn:
     priority      => '10',
     vhost_name    => $::fqdn,
     port          => '80',
     docroot       => $docroot,
     default_vhost => false,
-  } ->
+  }
 
-  wordpress::instance::app { 'rgbank':
+  -> wordpress::instance::app { 'rgbank':
     install_dir          => $docroot,
     install_url          => 'http://wordpress.org',
     version              => '4.3.1',

@@ -12,10 +12,10 @@ class profile::baseline::packages::windows {
   }
 
   package { 'powershell':
-    ensure => latest,
-    provider => 'chocolatey',
+    ensure          => latest,
+    provider        => 'chocolatey',
     install_options => ['-pre', '--ignore-package-exit-codes'],
-    notify => Reboot['afterpowershell'],
+    notify          => Reboot['afterpowershell'],
   }
 
   reboot { 'afterpowershell':

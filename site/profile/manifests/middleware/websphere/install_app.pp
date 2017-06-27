@@ -5,17 +5,17 @@ class profile::middleware::websphere::install_app (
   $cell            = 'CELL_01',
   $cluster         = 'MyCluster01',
   $user            = 'websphere',
-	$profile_base    = '/opt/IBM/WebSphere/AppServer/profiles',
-	$dmgr_profile    = 'PROFILE_DMGR_01',
-	$webmodule       = "Hello, World Application",
-	$webmodule_uri   = "helloworld.war,WEB-INF/web.xml",
-	$webmodule_vhost = "default_host"
+  $profile_base    = '/opt/IBM/WebSphere/AppServer/profiles',
+  $dmgr_profile    = 'PROFILE_DMGR_01',
+  $webmodule       = 'Hello, World Application',
+  $webmodule_uri   = 'helloworld.war,WEB-INF/web.xml',
+  $webmodule_vhost = 'default_host'
 ){
 
   # Require DMGR Profile BEFORE Installing any apps incase there are Node changes 
   Class['profile::middleware::websphere::dmgr'] -> Class['profile::middleware::websphere::install_app']
 
-	websphere_app{$appname:
+  websphere_app{$appname:
     ensure          => present,
     appsource       => $appfile,
     cell            => $cell,
@@ -26,5 +26,5 @@ class profile::middleware::websphere::install_app (
     webmodule       => $webmodule,
     webmodule_uri   => $webmodule_uri,
     webmodule_vhost => $webmodule_vhost,
-	}
+  }
 }

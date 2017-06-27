@@ -23,9 +23,9 @@ class profile::middleware::websphere::dmgr(
     profile_base => $profile_base,
     repository   => $repository,
     require      => Staging::Deploy['websphere_bundle.tar.gz']
-  } ->
+  }
 
-  websphere_application_server::profile::dmgr { $profile_name:
+  -> websphere_application_server::profile::dmgr { $profile_name:
     instance_base    => $target,
     profile_base     => $profile_base,
     cell             => $cell_name,
@@ -34,9 +34,9 @@ class profile::middleware::websphere::dmgr(
     wsadmin_user     => $wsadmin_user,
     wsadmin_pass     => $wsadmin_pass,
     collect_jvm_logs => false,
-  } ->
+  }
 
-  websphere_application_server::cluster { $cluster_name:
+  -> websphere_application_server::cluster { $cluster_name:
     profile_base => $profile_base,
     dmgr_profile => $profile_name,
     cell         => $cell_name,

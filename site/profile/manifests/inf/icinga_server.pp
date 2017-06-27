@@ -102,9 +102,9 @@ class profile::inf::icinga_server {
   package { 'nsca':
     ensure  => present,
     require => Class['profile::baseline::epel'],
-  }->
+  }
 
-  service { 'nsca':
+  -> service { 'nsca':
       ensure => running,
   }
 

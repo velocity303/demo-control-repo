@@ -25,10 +25,10 @@ class profile::middleware::websphere::appserver(
     profile_base => $profile_base,
     repository   => $repository,
     require      => Staging::Deploy['websphere_bundle.tar.gz']
-  } ->
+  }
 
 
-  websphere_application_server::profile::appserver { $app_profile:
+  -> websphere_application_server::profile::appserver { $app_profile:
     instance_base => $target,
     profile_base  => $profile_base,
     cell          => $cell_name,
@@ -39,13 +39,13 @@ class profile::middleware::websphere::appserver(
 
 
   @@websphere_application_server::cluster::member { $member_name:
-    ensure                           => 'present',
-    cluster                          => $cluster_name,
-    node_name                        => $app_node,
-    cell                             => $cell_name,
-    dmgr_host                        => $dmgr_host,
-    dmgr_profile                     => $dmgr_profile,
-    profile_base                     => $profile_base,
+    ensure       => 'present',
+    cluster      => $cluster_name,
+    node_name    => $app_node,
+    cell         => $cell_name,
+    dmgr_host    => $dmgr_host,
+    dmgr_profile => $dmgr_profile,
+    profile_base => $profile_base,
   }
 
 }
