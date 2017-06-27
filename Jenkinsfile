@@ -21,8 +21,12 @@ node {
     stage ('Authorize deployment') {
       puppet.credentials 'pe-access-token'
     }
+
     stage ('Deploy to production') {
       puppet.codeDeploy 'production'
+    }
+
+    stage ('Provision Test Node') {
     }
 
 //    stage ('Deploy change to production') {
