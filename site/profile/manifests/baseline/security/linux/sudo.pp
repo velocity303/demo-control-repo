@@ -8,7 +8,7 @@ class profile::baseline::security::linux::sudo (
     purge => true,
   }
 
-  $enforce_sudo_rules = change_window($tz, $window_type, $window_wday, $window_time)
+  #  $enforce_sudo_rules = change_window($tz, $window_type, $window_wday, $window_time)
 
   group {'wheel':
     ensure => present,
@@ -22,9 +22,9 @@ class profile::baseline::security::linux::sudo (
     }
   }
 
-  if $enforce_sudo_rules == 'true' {
-    sudo::conf { 'add james rule':
-      content => 'james ALL=(ALL) NOPASSWD:ALL',
-    }
-  }
+  #if $enforce_sudo_rules == 'true' {
+  #  sudo::conf { 'add james rule':
+  #    content => 'james ALL=(ALL) NOPASSWD:ALL',
+  #  }
+  #}
 }
