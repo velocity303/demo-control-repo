@@ -106,6 +106,7 @@ mod 'crayfishx/purge', '1.2.0'
 mod 'fiddyspence/sysctl', '1.1.0'
 mod 'souldo/remotedesktop', '1.0.2'
 mod 'souldo/wmi', '0.1.0'
+mod 'ipcrm/change_window'
 
 ###############################################################################
 # TSE Modules
