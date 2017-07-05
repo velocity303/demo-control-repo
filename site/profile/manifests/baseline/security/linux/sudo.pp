@@ -1,4 +1,4 @@
-class profile::baseline::security::linux::sudo {
+class profile::baseline::security::linux::sudo (
   $tz = "-06:00"
   $window_wday  = { start => 'Wednesday', end => 'Thursday' }
   $window_time = { start  => '10:00', end => '12:00' }
