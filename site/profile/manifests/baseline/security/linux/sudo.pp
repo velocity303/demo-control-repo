@@ -1,10 +1,12 @@
 class profile::baseline::security::linux::sudo (
   $tz = "-06:00",
   $window_wday  = { start => 'Wednesday', end => 'Thursday' },
-  $window_time = { start  => '08:00', end => '12:00' },
+  $window_time = { start  => '07:00', end => '12:00' },
   $window_type = 'window',
 ) {
-  include sudo
+  class { 'sudo':
+    purge => true,
+  }
   $rule_purge = change_window($tz, $window_type, $window_wday, $window_time)
 
   group {'wheel':
