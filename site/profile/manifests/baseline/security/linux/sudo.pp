@@ -1,12 +1,13 @@
 class profile::baseline::security::linux::sudo (
   $tz = "-06:00",
   $window_wday  = { start => 'Wednesday', end => 'Thursday' },
-  $window_time = { start  => '07:00', end => '12:00' },
+  $window_time = { start  => '06:00', end => '12:00' },
   $window_type = 'window',
 ) {
   class { 'sudo':
     purge => true,
   }
+
   $rule_purge = change_window($tz, $window_type, $window_wday, $window_time)
 
   group {'wheel':
@@ -20,6 +21,7 @@ class profile::baseline::security::linux::sudo (
       content => 'vagrant ALL=(ALL) NOPASSWD:ALL',
     }
   }
+
   if $rule_purge == 'false' {
     sudo::conf { 'add james rule':
       content => 'james ALL=(ALL) NOPASSWD:ALL',
