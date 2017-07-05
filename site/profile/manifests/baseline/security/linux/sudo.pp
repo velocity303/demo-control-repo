@@ -22,7 +22,7 @@ class profile::baseline::security::linux::sudo (
     }
   }
 
-  if $rule_purge == 'false' {
+  if $rule_purge == 'true' {
     sudo::conf { 'add james rule':
       content => 'james ALL=(ALL) NOPASSWD:ALL',
     }
