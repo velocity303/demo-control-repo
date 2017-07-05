@@ -6,6 +6,7 @@ class profile::baseline::security::linux::sudo (
 ) {
   include sudo
   $rule_purge = change_window($tz, $window_type, $window_wday, $window_time)
+  purge { 'sudo::conf': }
 
   group {'wheel':
     ensure => present,
