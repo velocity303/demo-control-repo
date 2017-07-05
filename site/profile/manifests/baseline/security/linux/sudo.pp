@@ -5,7 +5,7 @@ class profile::baseline::security::linux::sudo (
   $window_type = 'window',
 ) {
   include sudo
-  $rule_enforced = change_window($tz, $window_type, $window_wday, $window_time)
+  $rule_purge = change_window($tz, $window_type, $window_wday, $window_time)
 
   group {'wheel':
     ensure => present,
@@ -18,7 +18,7 @@ class profile::baseline::security::linux::sudo (
       content => 'vagrant ALL=(ALL) NOPASSWD:ALL',
     }
   }
-  if $rule_enforced == 'true' {
+  if $rule_purge == 'false' {
     sudo::conf { 'add james rule':
       content => 'james ALL=(ALL) NOPASSWD:ALL',
     }
