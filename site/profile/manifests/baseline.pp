@@ -1,10 +1,10 @@
 class profile::baseline {
 
-  File{
-    require => Host['puppet'],
-  }
+  #  File{
+  #  require => Host['puppet'],
+  #}
 
-  include profile::baseline::hosts
+  #  include profile::baseline::hosts
   include profile::baseline::users
   include profile::baseline::packages
   include profile::baseline::banner
