@@ -38,7 +38,6 @@ mod 'puppetlabs/websphere_application_server'
 # Other Puppet Created Modules
 
 mod 'puppetlabs/puppetserver_gem'
-mod 'puppetlabs/gcc'
 mod 'puppetlabs/git'
 mod 'puppetlabs/transition'
 
@@ -116,8 +115,8 @@ mod 'openssh',
 mod 'hosts',
    :git => 'https://github.com/velocity303/puppet-module-hosts.git'
 
-mod 'tse_sqlserver',
-   :git => 'http://root@gitlab.infrastructure.lab/puppet/tse_sqlserver.git'
+#mod 'tse_sqlserver',
+#   :git => 'http://root@gitlab.infrastructure.lab/puppet/tse_sqlserver.git'
 
 mod 'sqlwebapp',
    :git => 'git@github.com:puppetlabs/tse-module-sqlwebapp.git'
