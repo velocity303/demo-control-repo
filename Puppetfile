@@ -118,8 +118,8 @@ mod 'hosts',
 #mod 'tse_sqlserver',
 #   :git => 'http://root@gitlab.infrastructure.lab/puppet/tse_sqlserver.git'
 
-mod 'sqlwebapp',
-   :git => 'git@github.com:puppetlabs/tse-module-sqlwebapp.git'
+#mod 'sqlwebapp',
+#   :git => 'git@github.com:puppetlabs/tse-module-sqlwebapp.git'
 # Other modules
 ###############################################################################
 #
