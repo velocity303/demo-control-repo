@@ -32,7 +32,7 @@ mod 'puppetlabs/dsc'
 mod 'puppetlabs/puppet_agent'
 mod 'puppetlabs/ibm_installation_manager'
 mod 'puppetlabs/websphere_application_server'
-mod 'puppetlabs/haproxy'
+mod 'puppetlabs/haproxy', '1.3.0'
 
 
 ###############################################################################
