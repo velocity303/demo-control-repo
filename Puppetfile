@@ -133,3 +133,6 @@ mod 'consul_cluster',
   :git => 'https://github.com/velocity303/puppet-consul-app.git'
 
 mod 'puppetlabs/app_modeling'
+
+mod 'hunner/wordpress', '1.0.0'
+
