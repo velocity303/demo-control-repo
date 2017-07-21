@@ -17,7 +17,7 @@ define rgbank::load (
     ports            => '80',
   }
 
-    haproxy::balancermember { $member['host']:
+    haproxy::balancermember { $server_name:
       listening_service => "rgbank-${name}",
       server_names      => $server_name,
       ipaddresses       => $ipaddress_web,
