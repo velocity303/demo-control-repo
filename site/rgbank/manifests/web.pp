@@ -11,6 +11,8 @@ define rgbank::web (
   },
 ) {
 
+  include apache
+
   if $install_dir {
     $install_dir_real = $install_dir
   } else {
