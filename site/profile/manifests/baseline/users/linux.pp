@@ -1,3 +1,4 @@
+# This is a class to help manage users on linux
 class profile::baseline::users::linux {
 
   $local_admin_pass = hiera('local_admin_pass')
