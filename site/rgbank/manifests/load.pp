@@ -1,6 +1,9 @@
-define rgbank::load (
-  $balancermembers,
+define rgbank::load ( 
+  $balancermembers, 
   $port = 80,
+  $server_name,
+  $ipaddress_web,
+  $server_port,
 ) {
 
   haproxy::listen {"rgbank-${name}":
@@ -14,16 +17,13 @@ define rgbank::load (
     ports            => '80',
   }
 
-  $balancermembers.each |$member| {
     haproxy::balancermember { $member['host']:
       listening_service => "rgbank-${name}",
-      server_names      => $member['host'],
-      ipaddresses       => $member['ip'],
-      ports             => $member['port'],
+      server_names      => $server_name,
+      ipaddresses       => $ipaddress_web,
+      ports             => $server_port, 
       options           => 'check verify none',
     }
-  }
-
   firewall { "000 accept rgbank load connections on ${port}":
     dport  => $port,
     proto  => tcp,
@@ -39,5 +39,8 @@ Rgbank::Load produces Http {
   port => $port,
 }
 Rgbank::Load consumes Http {
-  host => $hostname,
+  name => $name,
+  ip   => $ipaddress_web,
+  host => $server_name,
+  port => $server_port,
 }
