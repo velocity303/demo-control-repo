@@ -39,8 +39,8 @@ Rgbank::Load produces Http {
   port => $port,
 }
 Rgbank::Load consumes Http {
-  name => $name,
-  ip   => $ipaddress_web,
-  host => $server_name,
-  port => $server_port,
+  name          => $name,
+  ipaddress_web => $ip,
+  server_name   => $host,
+  server_port   => $port,
 }
