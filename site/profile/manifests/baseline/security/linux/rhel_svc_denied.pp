@@ -1,5 +1,5 @@
 class profile::baseline::security::linux::rhel_svc_denied (
-  $http = false,
+  $http = true,
   $smb  = false,
   $nfs  = false,
   ) {
