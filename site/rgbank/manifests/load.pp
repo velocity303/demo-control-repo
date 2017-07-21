@@ -38,4 +38,4 @@ Rgbank::Load produces Http {
   host => $::fqdn,
   port => $port,
 }
-#Rgbank::Load consumes Http { }
+Rgbank::Load consumes Http { }
