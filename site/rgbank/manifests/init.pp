@@ -23,5 +23,6 @@ application rgbank (
     balancermembers => $webs,
     require         => $webs,
     export          => Http["rgbank-web-lb-${name}"],
+    consume         => Http["rgbank-web-${name}-0"],
   }
 }
