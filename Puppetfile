@@ -30,6 +30,9 @@ mod 'puppetlabs/sqlserver'
 mod 'puppetlabs/mount_iso'
 mod 'puppetlabs/dsc'
 mod 'puppetlabs/puppet_agent'
+mod 'puppetlabs/ibm_installation_manager'
+mod 'puppetlabs/websphere_application_server'
+mod 'puppetlabs/haproxy', '1.3.0'
 
 
 ###############################################################################
@@ -39,6 +42,7 @@ mod 'puppetlabs/puppetserver_gem'
 mod 'puppetlabs/gcc'
 mod 'puppetlabs/git'
 mod 'puppetlabs/transition'
+mod 'puppetlabs/image_build'
 
 
 ###############################################################################
@@ -104,6 +108,7 @@ mod 'crayfishx/purge', '1.2.0'
 mod 'fiddyspence/sysctl', '1.1.0'
 mod 'souldo/remotedesktop', '1.0.2'
 mod 'souldo/wmi', '0.1.0'
+mod 'ipcrm/change_window'
 
 ###############################################################################
 # TSE Modules
@@ -132,3 +137,5 @@ mod 'puppetlabs/app_modeling'
 
 mod 'hiera_mssql',
   :git => 'git@github.com:velocity303/hiera_mssql.git'
+
+mod 'hunner/wordpress', '1.0.0'
