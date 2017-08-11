@@ -16,17 +16,6 @@ Package {
 #
 #}
 
-site {
-   rgbank { 'dev':
-     nodes => {
-       Node['dockerhost01.chicago.lab'] => [
-         Rgbank::Web['dev-0'],
-         Rgbank::Load['dev'],
-         Rgbank::Db['dev'],
-       ],
-     },
-   }
-}
 node default {
   #  if !empty( $trusted['extensions']['pp_role'] ) {
   #  include "role::${trusted['extensions']['pp_role']}"
