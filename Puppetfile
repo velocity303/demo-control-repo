@@ -129,3 +129,6 @@ mod 'consul_cluster',
   :git => 'https://github.com/velocity303/puppet-consul-app.git'
 
 mod 'puppetlabs/app_modeling'
+
+mod 'hiera_mssql',
+  :git => 'git@github.com:velocity303/hiera_mssql.git'
