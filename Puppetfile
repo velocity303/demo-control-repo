@@ -137,3 +137,4 @@ mod 'puppetlabs/app_modeling'
 
 mod 'hunner/wordpress', '1.0.0'
 
+mod 'puppetlabs/f5'
