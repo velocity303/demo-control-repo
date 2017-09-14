@@ -135,6 +135,9 @@ mod 'consul_cluster',
 
 mod 'puppetlabs/app_modeling'
 
-mod 'hunner/wordpress', '1.0.0'
+mod 'hiera_sqlserver',
+  :git => 'git@github.com:velocity303/hiera_sqlserver.git'
 
 mod 'puppetlabs/f5'
+
+mod 'hunner/wordpress', '1.0.0'
