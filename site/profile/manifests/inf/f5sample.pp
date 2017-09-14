@@ -1,4 +1,5 @@
 class profile::inf::f5sample {
+
  f5_node { '/Common/WWW_Server_1':
    ensure                   => 'present',
    address                  => '172.16.226.10',
