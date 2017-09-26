@@ -118,8 +118,8 @@ mod 'openssh',
 mod 'hosts',
    :git => 'https://github.com/velocity303/puppet-module-hosts.git'
 
-mod 'tse_sqlserver',
-   :git => 'http://root@gitlab.infrastructure.lab/puppet/tse_sqlserver.git'
+#mod 'tse_sqlserver',
+#   :git => 'http://root@gitlab.infrastructure.lab/puppet/tse_sqlserver.git'
 
 mod 'sqlwebapp',
    :git => 'git@github.com:puppetlabs/tse-module-sqlwebapp.git'
