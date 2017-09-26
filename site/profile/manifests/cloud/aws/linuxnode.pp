@@ -6,7 +6,6 @@ define profile::cloud::aws::linuxnode (
   $instance_type = 'm3.medium',
   $security_groups = ['sg-af62abd2', 'sg-a856bad1
   '],
-  $subnet = 'subnet-d45073b0',
   $pp_department = 'TSE',
   $pp_project = 'wwt-aws-demo',
   $pp_created_by = 'james.jones',
@@ -24,7 +23,6 @@ define profile::cloud::aws::linuxnode (
     key_name          => $key_name,
     region            => $region,
     security_groups   => $security_groups,
-    subnet            => $subnet,
     tags              => {
       'department' => $pp_department,
       'project'    => $pp_project,
