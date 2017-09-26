@@ -4,7 +4,8 @@ define profile::cloud::aws::linuxnode (
   $image_id = 'ami-9fa343e7',
   $region = 'us-west-2',
   $instance_type = 'm3.medium',
-  $security_groups = ['Web Traffic Agent', 'default'],
+  $security_groups = ['sg-af62abd2', 'sg-a856bad1
+  '],
   $subnet = 'subnet-d45073b0',
   $pp_department = 'TSE',
   $pp_project = 'wwt-aws-demo',
