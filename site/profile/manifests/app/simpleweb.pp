@@ -13,7 +13,7 @@ class profile::app::simpleweb (
       $tomcat_other_versions = [ '7', '8']
     }
     '7': {
-      $tomcat_version = '7.0.77'
+      $tomcat_version = '7.0.81'
       $catalina_dir = '/opt/apache-tomcat7'
       $tomcat_other_versions = [ '6', '8']
     }
