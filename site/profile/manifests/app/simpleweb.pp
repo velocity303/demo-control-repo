@@ -101,7 +101,7 @@ class profile::app::simpleweb (
   $array = puppetdb_query('facts[value] { name = "hostname" and  certname in resources[certname] { tag = "simpleweb" and exported = true} }')
   $simple_array = $array.map |$k,$v| { values($v) }
   $flat_array = flatten($simple_array)
-  $my_array_hash = $flat_array.map |$k| { { name => $k, port => '8080' } }
+  $my_array_hash = $flat_array.map |$k| { { name => "/Common/simpleweb_${k}", port => '8080' } }
   Notify { "output":
     message => "your original output is ${array}"
   }
