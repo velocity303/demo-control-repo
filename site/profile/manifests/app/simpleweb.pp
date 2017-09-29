@@ -99,12 +99,12 @@ class profile::app::simpleweb (
   }
 
   $array = puppetdb_query('facts[value] { name = "ipaddress" and  certname in resources[certname] { tag = "simpleweb" and exported = true} }')
-  $new_array = $array.each |$value| { values($value) }
+  $hash = hash($array)
   Notify { "output":
     message => "your original output is ${array}"
   }
   Notify { "output2":
-    message => "your new array output is ${new_array}"
+    message => "your new array output is ${hash}"
   }
 
 }
