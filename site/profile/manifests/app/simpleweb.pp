@@ -97,4 +97,9 @@ class profile::app::simpleweb (
     health_monitors          => ['/Common/icmp'],
     tag                      => 'simpleweb',
   }
+
+  $array = puppetdb_query('facts[value] { name = "ipaddress" and  certname in resources[certname] { tag = "simpleweb" and exported = true} }').each |$value| { $value }
+  Notify { "output":
+    message => "your output is ${array}"
+  }
 }
