@@ -88,4 +88,13 @@ class profile::app::simpleweb (
     service_name  => 'plsample',
     subscribe     => Tomcat::War["plsample-${plsample_version}.war"],
   }
+
+  @@f5_node { "/Common/simpleweb_${::hostname}":
+    ensure                   => 'present',
+    address                  => $::ipaddress,
+    description              => 'Simpleweb Server',
+    availability_requirement => 'all',
+    health_monitors          => ['/Common/icmp'],
+    tag                      => 'simpleweb',
+  }
 }
