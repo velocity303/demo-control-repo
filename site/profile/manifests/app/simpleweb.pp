@@ -98,8 +98,13 @@ class profile::app::simpleweb (
     tag                      => 'simpleweb',
   }
 
-  $array = puppetdb_query('facts[value] { name = "ipaddress" and  certname in resources[certname] { tag = "simpleweb" and exported = true} }').each |$value| { values($value) }
+  $array = puppetdb_query('facts[value] { name = "ipaddress" and  certname in resources[certname] { tag = "simpleweb" and exported = true} }')
+  $new_array = $array.each |$value| { values($value) }
   Notify { "output":
-    message => "your output is ${array}"
+    message => "your original output is ${array}"
   }
+  Notify { "output2":
+    message => "your new array output is ${new_array}"
+  }
+
 }
