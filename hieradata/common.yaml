@@ -55,3 +55,4 @@ tse_sqlserver::mount::iso_source: http://fileserver.infrastructure.lab
 tse_sqlserver::sqlserver_version: 2014
 firewall::params::package_name: 'iptables-services'
 local_admin_pass: test
+f5_external: 192.168.0.2

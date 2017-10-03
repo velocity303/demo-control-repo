@@ -20,7 +20,7 @@ define profile::app::lb_app (
     ensure                    => 'present',
     provider                  => 'standard',
     default_pool              => "/Common/${app_name}_pool",
-    destination_address       => '192.168.80.100',
+    destination_address       => lookup('f5_external'),
     destination_mask          => '255.255.255.255',
     http_profile              => '/Common/http',
     service_port              => '80',
